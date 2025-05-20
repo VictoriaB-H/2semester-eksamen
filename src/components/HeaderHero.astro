@@ -1,7 +1,10 @@
 <div class="container">
-  <video autoplay muted loop playsinline class="bg-video">
+  <video autoplay muted loop playsinline class="mobilvideo">
     <source src="../img/mobilvideo.mov" type="video/mp4" />
-    Din browser understøtter ikke video.
+  </video>
+
+  <video autoplay muted loop playsinline class="desktopvideo">
+    <source src="../img/hero.mov" type="video/mp4" />
   </video>
 
   <main class="main-content">
@@ -10,19 +13,26 @@
   </main>
 </div>
 
-<style>
-  :host {
-    display: block;
-  }
+<div class="banner">
+  <img src="../img/banner.png" alt="Banner" class="banner-img" />
+  <img
+    src="../img/banner.png"
+    alt="Tisvilde Banner Duplicate"
+    class="banner-img"
+  />
+</div>
 
+<style>
   .container {
     position: relative;
     width: 100%;
     height: 100vh;
     overflow: hidden;
+    margin-top: -50px;
   }
 
-  .bg-video {
+  .mobilvideo,
+  .desktopvideo {
     position: absolute;
     top: 0;
     left: 0;
@@ -30,6 +40,10 @@
     height: 100%;
     object-fit: cover;
     z-index: -1;
+  }
+
+  .desktopvideo {
+    display: none;
   }
 
   .main-content {
@@ -43,7 +57,7 @@
   }
 
   .main-content h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 1rem;
   }
@@ -57,12 +71,47 @@
     color: black;
     background-color: transparent;
     transition:
-      background-color 0.3s,
+      border-color 0.3s,
       color 0.3s;
   }
 
   .btn:hover {
-    background-color: yellow;
-    color: black;
+    color: #fffa3c;
+    border-color: #fffa3c;
+  }
+
+  .banner {
+    display: flex;
+    width: fit-content;
+    animation: scroll-left 25s linear infinite;
+  }
+
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* DESKTOP (fra 768px og op) */
+  @media screen and (min-width: 768px) {
+    .mobilvideo {
+      display: none;
+    }
+
+    .desktopvideo {
+      display: block;
+    }
+
+    .main-content h1 {
+      font-size: 3rem;
+    }
+
+    .btn {
+      font-size: 1.25rem;
+      padding: 0.75rem 1.5rem;
+    }
   }
 </style>
