@@ -1,0 +1,28 @@
+---
+const { artists } = Astro.props;
+---
+
+<a class="artist-card">
+  <article>
+    <img src={"img/" + artists.image} alt={artists.name} />
+    <h3>{artists.name}</h3>
+  </article>
+</a>
+
+<style>
+  h3 {
+    margin-top: 10px;
+    transition: color 0.3s ease;
+  }
+
+  h3:hover {
+    color: #fffa3c;
+  }
+  .artist-card {
+    text-align: center;
+  }
+
+  .artist-card img {
+    width: 100%;
+  }
+</style>
