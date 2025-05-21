@@ -2,12 +2,12 @@
 const { artists } = Astro.props;
 ---
 
-<a class="artist-card">
+<div class="artist-card" data-artist="{JSON.stringify(artists)}">
   <article>
     <img src={"img/" + artists.image} alt={artists.name} />
     <h3>{artists.name}</h3>
   </article>
-</a>
+</div>
 
 <style>
   h3 {

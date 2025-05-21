@@ -27,22 +27,30 @@ console.log(data);
   <div class="artist-grid">
     {data.map((artist) => <Artist artists={artist} />)}
   </div>
-</Layout>
 
-<style>
-  .artist-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    padding: 50px;
-  }
+  <section id="overlay" class="overlay hidden">
+    <img id="overlayImg" />
+    <p id="overlayDay"></p>
+    <p id="overlayTime"></p>
+    <h2 id="overlayName"></h2>
+    <p id="overlayDescription"></p>
+  </section>
 
-  /********************** DESKTOP /**********************/
-  @media (min-width: 768px) {
+  <style>
     .artist-grid {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 50px;
-      padding: 80px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      padding: 50px;
     }
-  }
-</style>
+
+    /********************** DESKTOP /**********************/
+    @media (min-width: 768px) {
+      .artist-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 50px;
+        padding: 80px;
+      }
+    }
+  </style>
+</Layout>

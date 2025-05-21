@@ -1,0 +1,66 @@
+<footer>
+  <div class="footer-container">
+    <div class="footer-title">
+      <h2>Av, Min Guldtand</h2>
+    </div>
+
+    <div class="footer-info">
+      <p>Foreningen Av Min Guldtand,<br />Kildegårdsvej 5, 3220 Tisvildeleje</p>
+      <p>
+        Kontakt: <a href="mailto:arthur@avminguldtand.dk"
+          >arthur@avminguldtand.dk</a
+        ><br />CVR: 39916347
+      </p>
+      <p>©2023 Av, Min Guldtand. All rights reserved.</p>
+    </div>
+
+    <div class="footer-social">
+      <p>Følg med her</p>
+      <ul>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">TikTok</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-image">
+      <img src="/img/pistol-fyr.webp" alt="Pistol Fyr" />
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    text-align: center;
+    padding: 10px 20px;
+  }
+  footer ul {
+    padding: 0;
+    list-style: none;
+  }
+
+  footer a {
+    color: white;
+    text-decoration: none;
+  }
+
+  footer a:hover {
+    text-decoration: underline;
+  }
+
+  footer img {
+    width: 100px;
+  }
+
+  /* DESKTOP layout */
+  @media (min-width: 768px) {
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      text-align: left;
+      align-items: start;
+    }
+  }
+</style>
