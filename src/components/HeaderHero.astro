@@ -13,13 +13,11 @@
   </main>
 </div>
 
-<div class="banner">
-  <img src="../img/banner.png" alt="Banner" class="banner-img" />
-  <img
-    src="../img/banner.png"
-    alt="Tisvilde Banner Duplicate"
-    class="banner-img"
-  />
+<div class="banner-wrapper">
+  <div class="banner">
+    <img src="../img/banner.png" alt="Banner" class="banner-img" />
+    <img src="../img/banner.png" alt="Banner Duplicate" class="banner-img" />
+  </div>
 </div>
 
 <style>
@@ -39,7 +37,6 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -1;
   }
 
   .desktopvideo {
@@ -54,12 +51,6 @@
     text-align: center;
     z-index: 2;
     color: black;
-  }
-
-  .main-content h1 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
   }
 
   .btn {
@@ -80,10 +71,24 @@
     border-color: #fffa3c;
   }
 
+  .banner-wrapper {
+    width: 100%;
+    overflow: hidden;
+    background-color: #ece8dd;
+  }
+
+  /* .banner kan være bredere, men bliver skjult i wrapper */
   .banner {
     display: flex;
     width: fit-content;
     animation: scroll-left 25s linear infinite;
+  }
+
+  .banner-img {
+    display: block;
+    height: auto;
+    max-height: 100px;
+    flex-shrink: 0;
   }
 
   @keyframes scroll-left {
