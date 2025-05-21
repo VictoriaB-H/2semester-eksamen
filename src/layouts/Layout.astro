@@ -10,12 +10,15 @@ import Footer from "../components/Footer.astro";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="/src/css/global.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/hwg6tag.css" />
     <meta name="generator" content={Astro.generator} />
     <title>Av, Min Guldtand</title>
   </head>
   <body>
     <Header />
-    <slot />
+    <main>
+      <slot />
+    </main>
     <Footer />
   </body>
 </html>
@@ -28,5 +31,23 @@ import Footer from "../components/Footer.astro";
     height: 100%;
     background-color: black;
     color: white;
+  }
+
+  main {
+    margin: 0 35px;
+  }
+
+  /* Tablet */
+  @media (min-width: 768px) {
+    main {
+      margin: 0 45px;
+    }
+  }
+
+  /* Desktop */
+  @media (min-width: 1024px) {
+    main {
+      margin: 0 80px;
+    }
   }
 </style>

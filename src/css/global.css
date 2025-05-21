@@ -1,0 +1,64 @@
+@font-face {
+  font-family: "Anton";
+  src: url("/fonts/Anton-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Anton", sans-serif;
+}
+
+h1 {
+  font-size: 50px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 40px;
+  text-align: center;
+}
+
+h3 {
+  font-size: 22px;
+  line-height: 1.4;
+  margin-top: -20px;
+}
+
+h4 {
+  font-size: 20px;
+  text-align: center;
+}
+
+p {
+  font-size: 16px;
+  font-family: owners-text, sans-serif;
+}
+
+/* Desktop styles */
+@media (min-width: 768px) {
+  h1 {
+    font-size: 115px;
+  }
+
+  h2 {
+    font-size: 85px;
+  }
+
+  h3 {
+    font-size: 60px;
+    line-height: 1.1;
+  }
+
+  h4 {
+    font-size: 25px;
+  }
+
+  p {
+    font-size: 20px;
+  }
+}
