@@ -2,10 +2,47 @@
 import Layout from "../layouts/Layout.astro";
 import Filtering from "../components/Filtering.astro";
 import Artist from "../components/Artist.astro";
+
+const curl =
+  "https://zzdphsvaxqlrcopwyikk.supabase.co/rest/v1/artists?order=id.asc";
+
+const apikey =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp6ZHBoc3ZheHFscmNvcHd5aWtrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc2NDQwODcsImV4cCI6MjA2MzIyMDA4N30.qoQ9GruNJ6xaGm_Os6wmCQz85LD6xU8asiNp29IRW98";
+
+const options = {
+  headers: {
+    apikey: apikey,
+  },
+};
+
+const data = await fetch(curl, options).then((response) => response.json());
+console.log(data);
 ---
 
 <Layout>
   <h1>PROGRAM</h1>
+
   <Filtering />
-  <Artist />
+
+  <div class="artist-grid">
+    {data.map((artist) => <Artist artists={artist} />)}
+  </div>
 </Layout>
+
+<style>
+  .artist-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    padding: 50px;
+  }
+
+  /********************** DESKTOP /**********************/
+  @media (min-width: 768px) {
+    .artist-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 50px;
+      padding: 80px;
+    }
+  }
+</style>
