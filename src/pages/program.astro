@@ -1,8 +1,9 @@
 ---
+// Importer komponenter og layout
 import Layout from "../layouts/Layout.astro";
-import Filtering from "../components/Filtering.astro";
 import Artist from "../components/Artist.astro";
 
+// Henter data fra Supabase (REST API)
 const curl =
   "https://zzdphsvaxqlrcopwyikk.supabase.co/rest/v1/artists?order=id.asc";
 
@@ -20,36 +21,251 @@ console.log(data);
 ---
 
 <Layout>
-  <h1>h1 PROGRAM</h1>
-  <h2>h2 Test</h2>
-  <h3>h3 Test</h3>
-  <h4>h4 Test</h4>
-  <p>
-    P testLorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum
-    atque nostrum sapiente, eaque ad dignissimos sed excepturi. Natus modi,
-    accusantium beatae quaerat nesciunt nobis perspiciatis adipisci dignissimos
-    est earum nisi!
-  </p>
+  <h1>PROGRAM</h1>
 
-  <Filtering />
+  <!-- Filtrerings knapper -->
+  <div class="filter-buttons">
+    <button onclick="filterByDay('Alle')">Alle</button>
+    <button onclick="filterByDay('Fredag')">Fredag 30/5</button>
+    <button onclick="filterByDay('Lørdag')">Lørdag 30/5</button>
+  </div>
 
+  <!-- Artister -->
   <div class="artist-grid">
     {data.map((artist) => <Artist artists={artist} />)}
+  </div>
+
+  <!-- Overlay for artister -->
+  <div id="artistOverlay" class="overlay">
+    <div class="overlay-content">
+      <img id="overlayImg" />
+      <div class="overlay-text">
+        <h2 id="overlayName"></h2>
+        <div class="day-time-box">
+          <p id="overlayDay" class="day-time-item"></p>
+          <p id="overlayTime" class="day-time-item"></p>
+        </div>
+        <p id="overlayDescription"></p>
+        <div id="overlaySpotify"></div>
+      </div>
+    </div>
+    <button id="closeOverlay" class="close-btn">×</button>
   </div>
 </Layout>
 
 <style>
+  /* Filter-knapper */
+
+  .filter-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-bottom: 5px;
+  }
+
+  .filter-buttons button {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .filter-buttons button:hover {
+    border-color: #fffa3c;
+    color: #fffa3c;
+  }
+
+  .filter-buttons button.active {
+    background-color: #fffa3c;
+    border-color: #fffa3c;
+    color: black;
+  }
+
+  /* Grid for artister */
   .artist-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
   }
 
-  /********************** DESKTOP /**********************/
+  /* Overlay */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .overlay.show {
+    transform: translateX(0);
+  }
+
+  .overlay-content {
+    background-color: #000000;
+    position: relative;
+    padding: 10%;
+  }
+
+  .overlay-content img {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto; /* Centreret billede */
+  }
+
+  .overlay .close-btn {
+    position: absolute;
+    top: 40px;
+    right: 45px;
+    font-size: 50px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+
+  .overlay .close-btn:hover {
+    color: #fffa3c;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  /* Dag ig tid */
+  .day-time-box {
+    display: flex;
+    gap: 20px;
+  }
+
+  .day-time-item {
+    border: 1px solid white;
+    padding: 5px 15px;
+    margin-bottom: 5px;
+  }
+
+  /********************** TABLET/DESKTOP **********************/
   @media (min-width: 768px) {
     .artist-grid {
       grid-template-columns: repeat(3, 1fr);
       gap: 50px;
     }
+    .overlay {
+      left: auto;
+      right: 0;
+      max-width: 80%;
+    }
+    .overlay-content {
+      display: flex;
+      align-items: center;
+      margin: auto;
+    }
+
+    .overlay-content img {
+      width: 45%;
+      margin-left: 0;
+    }
+
+    .overlay-text {
+      width: 50%;
+    }
+
+    .overlay-text h2 {
+      line-height: 1;
+    }
   }
 </style>
+
+<!--********************** JAVA SCRIPT **********************-->
+<script>
+  // Overlay-elementet
+  const overlay = document.getElementById("artistOverlay");
+
+  // Vis overlay med artist-detaljer
+  function showOverlay(artist) {
+    document.getElementById("overlayImg").src = "img/" + artist.image;
+    document.getElementById("overlayName").textContent = artist.name;
+    document.getElementById("overlayDay").textContent = artist.day;
+    document.getElementById("overlayTime").textContent = "Kl. " + artist.time;
+    document.getElementById("overlayDescription").textContent =
+      artist.description;
+
+    const spotifyContainer = document.getElementById("overlaySpotify");
+
+    // Omdan Spotify-link til embed-link
+    let embedUrl = "";
+    if (
+      artist.spotifyEmbedUrl &&
+      artist.spotifyEmbedUrl.includes("open.spotify.com/artist")
+    ) {
+      embedUrl = artist.spotifyEmbedUrl.replace(
+        "open.spotify.com/artist",
+        "open.spotify.com/embed/artist"
+      );
+    }
+
+    if (embedUrl) {
+      spotifyContainer.innerHTML = `
+      <iframe style="border-radius:12px" 
+              src="${embedUrl}" 
+              width="100%" 
+              height="152" 
+              frameBorder="0" 
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+              loading="lazy">
+      </iframe>`;
+    } else {
+      spotifyContainer.innerHTML = "";
+    }
+
+    overlay.classList.remove("hidden");
+    setTimeout(() => overlay.classList.add("show"), 10);
+  }
+
+  // Skjul overlay
+  function hideOverlay() {
+    overlay.classList.remove("show");
+    setTimeout(() => overlay.classList.add("hidden"), 500);
+  }
+
+  // Tilføj klik-event til artistkort
+  document.querySelectorAll(".artist-card").forEach((card) => {
+    card.addEventListener("click", () => {
+      const artist = JSON.parse(card.dataset.artist);
+      showOverlay(artist);
+    });
+  });
+
+  // Lukke-knap i overlay
+  document
+    .getElementById("closeOverlay")
+    .addEventListener("click", hideOverlay);
+
+  // Filtrer artister efter dag
+  window.filterByDay = function (day) {
+    // Skift aktiv knap-styling
+    document.querySelectorAll(".filter-buttons button").forEach((btn) => {
+      btn.classList.remove("active");
+      if (btn.textContent.toLowerCase().includes(day.toLowerCase())) {
+        btn.classList.add("active");
+      }
+    });
+
+    // Filtrer artistkort
+    document.querySelectorAll(".artist-card").forEach((card) => {
+      const artist = JSON.parse(card.dataset.artist);
+      const artistDay = artist.day?.toLowerCase();
+      const filterDay = day.toLowerCase();
+
+      card.style.display =
+        day === "Alle" || artistDay.includes(filterDay) ? "block" : "none";
+    });
+  };
+</script>

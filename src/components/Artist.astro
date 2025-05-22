@@ -2,7 +2,7 @@
 const { artists } = Astro.props;
 ---
 
-<a class="artist-card">
+<a class="artist-card" data-artist={JSON.stringify(artists)}>
   <article>
     <img src={"img/" + artists.image} alt={artists.name} />
     <h3>{artists.name}</h3>
@@ -11,7 +11,8 @@ const { artists } = Astro.props;
 
 <style>
   h3 {
-    margin-top: 10px;
+    margin-top: 15px;
+    margin-bottom: 0;
     transition: color 0.3s ease;
   }
 
