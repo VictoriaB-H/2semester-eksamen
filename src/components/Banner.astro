@@ -1,0 +1,47 @@
+<div class="bildebanner_wrapper">
+  <div class="bildebanner">
+    <img src="../../public/img/bildebanner.webp" alt="" />
+    <img src="../../public/img/bildebanner.webp" alt="" />
+  </div>
+</div>
+
+<style>
+  .bildebanner-wrapper {
+    width: 100%;
+    overflow: hidden;
+    background-color: #ece8dd;
+  }
+
+  .bildebanner {
+    display: flex;
+    width: fit-content;
+    animation: scroll-left 25s linear infinite;
+    margin-top: 50px;
+  }
+
+  .bildebanner img {
+    display: block;
+    height: auto;
+    max-height: 180px;
+    flex-shrink: 0;
+  }
+
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .bildebanner {
+      margin-top: 80px;
+    }
+
+    .bildebanner img {
+      max-height: 280px;
+    }
+  }
+</style>
