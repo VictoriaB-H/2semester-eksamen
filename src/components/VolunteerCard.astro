@@ -1,0 +1,53 @@
+---
+import VolunteerInfo from "../components/VolunteerInfo.astro";
+---
+
+<div class="grid_blivfrivillig">
+  <div class="frivillig_bilder">
+    <img class="bilde3" src="../../public/img/frivillig_bilde3.webp" alt="" />
+    <img class="bilde2" src="../../public/img/frivillig_bilde2.webp" alt="" />
+    <img class="bilde1" src="../../public/img/frivillig_bilde1.webp" alt="" />
+  </div>
+  <div>
+    <VolunteerInfo />
+  </div>
+</div>
+
+<style>
+  img {
+    max-width: 100%;
+  }
+
+  .bilde3 {
+    max-width: 90%;
+  }
+
+  .frivillig_bilder {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 30px;
+  }
+
+  .frivillig_bilder img {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  @media (min-width: 768px) {
+    .grid_blivfrivillig {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+
+    .frivillig_bilder {
+      padding: 0px;
+    }
+  }
+
+  @media (min-width: 1150px) {
+    .grid_blivfrivillig {
+      padding: 100px;
+    }
+  }
+</style>
