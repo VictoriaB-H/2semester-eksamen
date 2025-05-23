@@ -1,7 +1,7 @@
 <div class="ticket">
   <!-- Overskrift -->
   <header class="ticket-overskrift">
-    <h2>AV, MIN GULDTAND</h2>
+    <h3>AV, MIN GULDTAND</h3>
   </header>
 
   <!-- Lokation og priser -->
@@ -20,8 +20,8 @@
 
   <!-- Beskrivelse -->
   <section class="ticket-desc">
-    Køb dine billetter i dag, og støt op om kulturlivet i Tisvildeleje.<br />
-    Vi glæder os til at se dig!
+    Køb dine billetter i dag, og støt op om kulturlivet i Tisvildeleje. Vi
+    glæder os til at se dig!
   </section>
 
   <!-- Illustrativt billede -->
@@ -56,21 +56,22 @@
     overflow: hidden;
     clip-path: polygon(
       10px 0%,
-      calc(100% - 10px) 0%,
-      100% 10px,
-      100% 100%,
-      10px 100%,
-      0% calc(100% - 10px),
-      0% 10px
+      /* top left indhak */ calc(100% - 10px) 0%,
+      /* top right indhak */ 100% 10px,
+      /* top right indhak */ 100% calc(100% - 10px),
+      /* bottom right indhak */ calc(100% - 10px) 100%,
+      /* bottom right indhak */ 10px 100%,
+      /* bottom left indhak */ 0% calc(100% - 10px),
+      /* bottom left indhak */ 0% 10px /* top left indhak */
     );
   }
   .ticket-overskrift {
     padding: 10px;
     text-align: center;
   }
-  .ticket-overskrift h2 {
+  .ticket-overskrift h3 {
     color: #cf3237;
-    font-size: 30px;
+    font-size: 3rem;
     margin: 0 0 12px;
     font-weight: bold;
   }
@@ -87,6 +88,7 @@
     text-align: right;
     font-weight: bold;
     color: #000;
+    font-family: "Anton", sans-serif;
   }
   .ticket-separator {
     border-top: 1px solid #000;
@@ -94,13 +96,14 @@
   }
   .ticket-desc {
     padding: 0px 16px;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: bold;
     color: #000;
+    font-family: "Anton", sans-serif;
   }
   .ticket-image {
-    width: 90%;
-    margin: 5px;
+    width: 100%;
+    margin: 0;
   }
   .ticket-button {
     text-align: center;
@@ -113,6 +116,7 @@
     border: none;
     padding: 12px 28px;
     cursor: pointer;
+    margin-top: 10px;
   }
 
   .ticket-button button span {
@@ -126,13 +130,13 @@
   .ticket-dates {
     text-align: center;
     color: #d42c2c;
-    font-weight: bold;
-    font-size: 25px;
+    font-size: 2rem;
+    font-family: owners-text, sans-serif;
     padding: 10px;
   }
   .date-separator {
     border-top: 1px solid #000;
-    margin: 12px 0;
+    margin: 10px 0;
   }
   .barcode {
     padding: 0 0 16px 0;
@@ -143,47 +147,53 @@
     height: auto;
     text-align: center;
   }
+  .price {
+    font-family: "Anton", sans-serif;
+  }
   @media screen and (min-width: 768px) {
     .ticket {
-      max-width: 1100px;
       display: grid;
       grid-template-columns: 3fr 4fr 1fr;
-      padding: 10px;
+      grid-template-rows: auto 1fr auto;
+      max-width: 1100px;
       margin: 40px auto;
+      padding: 10px;
+      background-color: white;
+      border: 6px solid black;
       clip-path: polygon(
-        10px 0%,
-        calc(100% - 10px) 0%,
-        100% 10px,
-        100% calc(100% - 10px),
-        calc(100% - 10px) 100%,
-        0% 100%,
-        0% 10px
+        20px 0%,
+        calc(100% - 20px) 0%,
+        100% 20px,
+        100% calc(100% - 20px),
+        calc(100% - 20px) 100%,
+        20px 100%,
+        0% calc(100% - 20px),
+        0% 20px
       );
     }
 
     .ticket-desc {
       grid-column: 1;
       grid-row: 1;
-      font-size: 20px;
+      font-size: 18px;
       font-weight: bold;
-      color: black;
-      padding: 20px 0;
+      padding: 10px 20px;
     }
 
     .ticket-image {
       grid-column: 1;
       grid-row: 2 / span 2;
       width: 100%;
-      padding: 0;
-      object-fit: cover;
       height: 100%;
+      object-fit: cover;
       display: block;
     }
 
     .ticket-overskrift {
       grid-column: 2;
       grid-row: 1;
-      text-align: left;
+      align-self: start;
+      padding: 10px 0;
     }
 
     .ticket-overskrift h2 {
@@ -198,30 +208,45 @@
       grid-row: 2;
       display: flex;
       flex-direction: column;
+      justify-content: flex-start;
+      padding: 0 0 0 10px;
       font-size: 20px;
     }
 
     .ticket-info .location {
+      margin-top: 20px;
       font-weight: bold;
       text-align: right;
+      text-transform: uppercase;
     }
-
     .ticket-button {
       grid-column: 2;
       grid-row: 3;
-      text-align: left;
-      padding: 20px;
+    }
+
+    .ticket-button button {
+      background-color: black;
+      color: white;
+      border: none;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
     }
 
     .ticket-dates {
       grid-column: 3;
       grid-row: 1 / span 2;
       writing-mode: vertical-rl;
-      transform: rotate(360deg);
       text-align: center;
-      font-size: 30px;
-      font-weight: bold;
+      font-size: 25px;
       color: #cf3237;
+      align-self: center;
+      position: relative;
+      top: 5px;
+      left: -60px;
+      letter-spacing: 0.2rem;
+      line-height: 2;
+      font-family: owners-text, sans-serif;
     }
 
     .barcode {
@@ -235,6 +260,10 @@
 
     .barcode img {
       width: 300px;
+      height: auto;
+      position: relative;
+      top: -100px;
+      left: -150px;
     }
 
     .ticket-separator,

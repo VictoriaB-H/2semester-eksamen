@@ -72,14 +72,24 @@
     color: #fffa3c;
     border-color: #fffa3c;
   }
-
   .banner-wrapper {
-    width: 100%;
+    width: 100vw; /* stræk til hele viewporten */
+    margin: 0;
+    padding: 0;
     overflow: hidden;
     background-color: #ece8dd;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
   }
 
-  /* .banner kan være bredere, men bliver skjult i wrapper */
+  .banner {
+    display: flex;
+    width: fit-content;
+    animation: scroll-left 25s linear infinite;
+  }
+
   .banner {
     display: flex;
     width: fit-content;
