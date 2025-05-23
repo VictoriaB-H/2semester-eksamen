@@ -2,16 +2,16 @@
   <video autoplay muted loop playsinline class="mobilvideo">
     <source src="../img/mobilvideo.mov" type="video/mp4" />
   </video>
-
-  <video autoplay muted loop playsinline class="desktopvideo">
-    <source src="../img/hero.mov" type="video/mp4" />
-  </video>
-
-  <main class="main-content">
-    <h1>AV, MIN GULDTAND</h1>
-    <a href="#" class="btn">BILLETTER</a>
-  </main>
 </div>
+
+<video autoplay muted loop playsinline class="desktopvideo">
+  <source src="../img/hero.mov" type="video/mp4" />
+</video>
+
+<main class="main-content">
+  <h1>AV, MIN GULDTAND</h1>
+  <a href="#" class="btn">BILLETTER</a>
+</main>
 
 <div class="banner-wrapper">
   <div class="banner">
@@ -22,11 +22,11 @@
 
 <style>
   .container {
+    width: 100vw;
+    padding: 0;
     position: relative;
-    width: 100%;
     height: 100vh;
     overflow: hidden;
-    margin-top: -50px;
   }
 
   .mobilvideo,
@@ -64,6 +64,8 @@
     transition:
       border-color 0.3s,
       color 0.3s;
+    font-family: "Anton", sans-serif;
+    font-size: 1rem;
   }
 
   .btn:hover {
@@ -108,10 +110,6 @@
 
     .desktopvideo {
       display: block;
-    }
-
-    .main-content h1 {
-      font-size: 3rem;
     }
 
     .btn {

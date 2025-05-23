@@ -1,0 +1,71 @@
+---
+import Card from "../components/AssignmentsCard.astro";
+---
+
+<section class="aktivitets-cards">
+  <div class="cards">
+    <Card
+      overskrift="INDGANG OG BILLETTER"
+      beskrivelse="Indebærer bl.a. at være portvagter, uddele armbånd og at stå i garderoben. Her vil du skulle arbejde mellem 8-12 timer I LØBET AF festivalen (fordelt på de to festivaldage)"
+      readmore="GODER"
+      link="#pladsen"
+    />
+    <Card
+      overskrift="PLADSEN"
+      beskrivelse="Indebærer bl.a. at holde pladsen flot og ryddet (f.eks. foran scenen efter koncerter), at hjælpe folk med at finde vej til pladsen og at holde styr på frivilligområdet. Her vil du skulle arbejde mellem 8-12 timer I LØBET AF festivalen (fordelt på de to festivaldage)"
+      readmore="GODER"
+      link="#bar"
+    />
+    <Card
+      overskrift="BAR"
+      beskrivelse="Indebærer at stå i baren, servere drikke til gæsterne og tage imod betaling. Her vil du skulle arbejde mellem 8-12 timer I LØBET AF festivalen (fordelt på de to festivaldage)OBS: du skal være fyldt 18 år for at vælge denne"
+      readmore="GODER"
+      link="#produktion"
+    />
+    <Card
+      overskrift="OPSÆTNING OG PRODUKTION"
+      beskrivelse="Indebærer opsætning og nedtagning af festivalpladsen m. bl.a. sceneopsætning, bygning og etablering af diverse konstruktioner på pladsen og nedtagning efter festivalen. Her vil du skulle arbejde 2x8 timer FØR og/eller EFTER festivalen"
+      readmore="GODER"
+      link="#indgang"
+    />
+  </div>
+</section>
+
+<style>
+  .aktivitets-cards {
+    max-width: 1200px; /* Begrænset bredde */
+    margin: 0 auto; /* Centrerer på siden */
+    padding: 2rem 1rem; /* Lige margin på begge sider */
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  @media (max-width: 1024px) {
+    .cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .cards {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 10px;
+      padding: 0 1rem;
+    }
+
+    .cards::-webkit-scrollbar {
+      display: none;
+    }
+
+    .card {
+      scroll-snap-align: center;
+      flex: 0 0 80%;
+    }
+  }
+</style>
