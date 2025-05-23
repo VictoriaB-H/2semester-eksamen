@@ -9,7 +9,8 @@
 </video>
 
 <main class="main-content">
-  <h1>AV, MIN GULDTAND</h1>
+  <h2>AV, MIN GULDTAND</h2>
+  <img class="stjernen" src="/img/stjernen.png" alt="" />
   <a href="#" class="btn">BILLETTER</a>
 </main>
 
@@ -66,6 +67,7 @@
     transition:
       border-color 0.3s,
       color 0.3s;
+    font-family: "Anton", sans-serif;
   }
 
   .btn:hover {
@@ -103,6 +105,10 @@
     flex-shrink: 0;
   }
 
+  /* .stjernen {
+    display: none;
+  } */
+
   @keyframes scroll-left {
     0% {
       transform: translateX(0);
@@ -125,6 +131,11 @@
     .btn {
       font-size: 1.25rem;
       padding: 0.75rem 1.5rem;
+    }
+    .stjernen {
+      position: absolute;
+      left: 550px;
+      top: -70px;
     }
   }
 </style>
