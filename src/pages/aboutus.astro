@@ -5,21 +5,146 @@ import Banner from "../components/Banner.astro";
 
 <Layout>
   <h1>OM OS</h1>
-  <section class="billedecollage"></section>
-  <section class="omos-info">
-    <h3>FORENINGEN AV, MIN GULDTAND</h3>
-    <div>
-      <p></p>
-      <p></p>
-    </div>
-    <div>
-      <p></p>
-      <p></p>
-      <p></p>
-      <p></p>
-      <p></p>
-      <p></p>
+
+  <section>
+    <div class="collage-wrapper">
+      <img src="/img/om-os-img.webp" alt="Koncert" class="bg-image" />
+
+      <div class="tape-polaroid">
+        <img src="/img/tape-polaroid.webp" alt="Tape" class="tape" />
+        <img src="/img/polaroid.webp" alt="Polaroid" class="polaroid" />
+      </div>
+
+      <img src="/img/coco.webp" alt="Publikum" class="coco" />
     </div>
   </section>
+
+  <section class="omos-info">
+    <h3>FORENINGEN <br />AV, MIN GULDTAND</h3>
+
+    <p>
+      Musikforeningen, Av, Min Guldtand, er sat i verden for at fremme det
+      kreative og kulturelle miljø i Tisvildeleje hele året rundt. Vi vil
+      uddanne unge i byen i at lære at tage ansvar og udvikle deres kompetencer
+      indenfor kreativ tænkning og iværksætteri. Vi vil hjælpe unge med at
+      nytænke og få deres egne initiativer ud i verden. Vi klæder dem på til at
+      stå på egne ben, og får dem til at se, at de kan mere end de selv ved i et
+      større fællesskab. Vi motiverer dem gennem workshops og møder, hvor de
+      lærer at tage ansvar og vise deres individuelle kvaliteter.
+    </p>
+
+    <p>
+      Foreningens bestyrelse er drevet af lokale ildsjæle, der alle betaler et
+      kontingent på hundrede kroner om året. Vi undgår at være
+      konkurrenceforvridende ved ikke at overbyde konkurrenter ved evt.
+      momsfritagelse. Eventuelt overskud i foreningens økonomi uddeles til andet
+      almennyttigt formål.
+    </p>
+
+    <div class="kontakt">
+      <p class="kontakt-title"><strong>Kontakt</strong></p>
+      <p>
+        Formand for foreningen: <a href="mailto:arthur@avminguldtand.dk"
+          >arthur@avminguldtand.dk</a
+        >
+        <br />
+        Booking & musik: <a href="mailto:sigurd@avminguldtand.dk"
+          >sigurd@avminguldtand.dk</a
+        >
+        <br />
+        Frivilligt arbejde: <a href="mailto:frivillig@avminguldtand.dk"
+          >frivillig@avminguldtand.dk</a
+        >
+        <br />
+        Mad & drikke: <a href="mailto:salg@avminguldtand.dk"
+          >salg@avminguldtand.dk</a
+        >
+        <br />
+        Kommunikation & presse: <a href="mailto:lisa@avminguldtand.dk"
+          >lisa@avminguldtand.dk</a
+        >
+      </p>
+    </div>
+  </section>
+
   <Banner />
 </Layout>
+
+<style>
+  .collage-wrapper {
+    position: relative;
+    margin: 0 auto;
+  }
+
+  .bg-image {
+    width: 100%;
+  }
+
+  .tape-polaroid {
+    position: absolute;
+    top: -40px;
+    left: -20px;
+    width: 40vw;
+    max-width: 280px;
+    z-index: 4;
+  }
+
+  .tape-polaroid .tape {
+    width: 80%;
+  }
+
+  .tape-polaroid .polaroid {
+    position: absolute;
+    top: 80%;
+    left: 40%;
+    width: 55%;
+    transform: rotate(-2deg);
+  }
+
+  .coco {
+    position: absolute;
+    right: -10px;
+    bottom: -10px;
+    width: 30%;
+  }
+
+  .omos-info {
+    margin: 2rem auto;
+    max-width: 85%;
+  }
+
+  .kontakt a {
+    color: #fffa3c;
+    text-decoration: none;
+  }
+
+  .kontakt a:hover {
+    text-decoration: underline;
+  }
+
+  .kontakt-title {
+    margin-bottom: -15px;
+  }
+
+  /* DESKTOP-FORBEDRINGER */
+  @media (min-width: 768px) {
+    .collage-wrapper {
+      max-width: 700px;
+      margin-top: 170px;
+    }
+
+    .tape-polaroid {
+      top: -70px;
+      left: -60px;
+    }
+
+    .tape-polaroid .tape {
+      width: 100%;
+    }
+
+    .tape-polaroid .polaroid {
+      top: 80%;
+      left: 70%;
+    }
+  }
+</style>
