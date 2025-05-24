@@ -11,7 +11,7 @@
 <main class="main-content">
   <h2>AV, MIN GULDTAND</h2>
   <img class="stjernen" src="/img/stjernen.png" alt="" />
-  <a href="#" class="btn">BILLETTER</a>
+  <a href="/tickets" class="btn">BILLETTER</a>
 </main>
 
 <div class="banner-wrapper">
@@ -29,7 +29,8 @@
     position: relative;
     height: 100vh;
     overflow: hidden;
-    margin-top: -50px;
+    margin-top: -70px;
+    margin-left: -35px;
   }
 
   .mobilvideo,
@@ -104,12 +105,10 @@
     max-height: 100px;
     flex-shrink: 0;
   }
-
-  /* .stjernen {
+  .stjernen {
     display: none;
-  } */
-
-  @keyframes scroll-left {
+  }
+  */ @keyframes scroll-left {
     0% {
       transform: translateX(0);
     }
@@ -132,10 +131,12 @@
       font-size: 1.25rem;
       padding: 0.75rem 1.5rem;
     }
+
     .stjernen {
       position: absolute;
       left: 550px;
       top: -70px;
+      display: block;
     }
   }
 </style>
