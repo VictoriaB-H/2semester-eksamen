@@ -53,7 +53,7 @@
 
 <style>
   .ticket {
-    max-width: 320px;
+    width: 320px;
     margin: auto;
     background: white;
     border-radius: 6px;
@@ -106,6 +106,7 @@
     color: #000;
     font-family: "Anton", sans-serif;
   }
+
   .ticket-image {
     width: 100%;
     aspect-ratio: 1 / 1;
@@ -165,9 +166,10 @@
   @media screen and (min-width: 768px) {
     .ticket {
       display: grid;
-      grid-template-columns: 3fr 4fr 1fr;
+      grid-template-columns: 1fr 2fr 0.5fr;
       grid-template-rows: auto 1fr auto;
-      max-width: 1000px;
+      width: 850px;
+      height: 350px;
       margin: auto;
       padding: 10px;
       background-color: white;
@@ -182,21 +184,21 @@
         0% calc(100% - 20px),
         0% 20px
       );
+      gap: 10px;
     }
 
     .ticket-desc {
       grid-column: 1;
       grid-row: 1;
-      font-size: 18px;
+      font-size: 15px;
       font-weight: bold;
-      padding: 10px 20px;
     }
 
     .ticket-image {
       grid-column: 1;
       grid-row: 2 / span 2;
-      width: 100%;
-      height: 100%;
+      width: 250px;
+      height: 250px;
       object-fit: cover;
       display: block;
     }
@@ -216,6 +218,7 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      margin-left: 10px;
     }
 
     .ticket-info {
@@ -229,8 +232,6 @@
     }
 
     .ticket-info .location {
-      margin-top: 20px;
-      font-weight: bold;
       text-align: right;
       text-transform: uppercase;
     }
@@ -240,7 +241,7 @@
       justify-self: start;
       align-self: start;
       margin-left: 10px;
-      margin-top: 165px;
+      margin-top: 192px;
     }
     .ticket-button a {
       font-size: 18px;
@@ -257,7 +258,7 @@
       color: #cf3237;
       position: relative;
       top: 20px;
-      left: -100px;
+      left: -95px;
       letter-spacing: 0.2rem;
       line-height: 2;
       font-family: owners-text, sans-serif;
@@ -279,8 +280,8 @@
       width: 300px;
       height: auto;
       position: relative;
-      top: 50px;
-      left: -170px;
+      top: 55px;
+      left: -210px;
     }
 
     .ticket-separator,
