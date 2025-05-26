@@ -16,6 +16,7 @@ h4 {
 
 h1 {
   font-size: 50px;
+  margin-bottom: 5px;
 }
 
 h2 {
@@ -45,9 +46,8 @@ p {
 /* Desktop styles */
 @media (min-width: 768px) {
   h1 {
-    font-size: 115px;
+    font-size: 100px;
   }
-
   h2 {
     font-size: 85px;
   }
@@ -66,14 +66,16 @@ p {
   }
 
   .btn2 {
-  font-size: 30px;
-  font-family: "Anton", sans-serif;
+    font-size: 30px;
+    font-family: "Anton", sans-serif;
+  }
 }
 
-}
-
- @media (min-width: 1024px) {
-  p{
+@media (min-width: 1024px) {
+  p {
     font-size: 20px;
   }
- }
+  h1 {
+    font-size: 115px;
+  }
+}
