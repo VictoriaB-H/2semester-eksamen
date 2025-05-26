@@ -4,7 +4,7 @@ const { artists } = Astro.props;
 
 <a class="artist-card" data-artist={JSON.stringify(artists)}>
   <article>
-    <img src={"img/" + artists.image} alt={artists.name} />
+    <img src={"../img/" + artists.image} alt={artists.name} />
     <h3>{artists.name}</h3>
   </article>
 </a>
