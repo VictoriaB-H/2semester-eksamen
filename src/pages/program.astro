@@ -24,8 +24,6 @@ console.log(data);
   <div id="mainContent">
     <h1>PROGRAM</h1>
 
-    <p>test</p>
-
     <!-- Filtrerings knapper -->
     <div class="filter-buttons">
       <button onclick="filterByDay('Alle')">Alle</button>
@@ -223,7 +221,7 @@ console.log(data);
 
   // Vis overlay med artist-detaljer
   function showOverlay(artist) {
-    document.getElementById("overlayImg").src = "img/" + artist.image;
+    document.getElementById("overlayImg").src = "../img/" + artist.image;
     document.getElementById("overlayName").textContent = artist.name;
     document.getElementById("overlayDay").textContent = artist.day;
     document.getElementById("overlayTime").textContent = "Kl. " + artist.time;
