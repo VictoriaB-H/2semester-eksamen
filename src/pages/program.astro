@@ -21,22 +21,24 @@ console.log(data);
 ---
 
 <Layout>
-  <h1>PROGRAM</h1>
+  <div id="mainContent">
+    <h1>PROGRAM</h1>
 
-  <!-- Filtrerings knapper -->
-  <div class="filter-buttons">
-    <button onclick="filterByDay('Alle')">Alle</button>
-    <button onclick="filterByDay('Fredag')">Fredag 30/5</button>
-    <button onclick="filterByDay('Lørdag')">Lørdag 30/5</button>
-  </div>
+    <!-- Filtrerings knapper -->
+    <div class="filter-buttons">
+      <button onclick="filterByDay('Alle')">Alle</button>
+      <button onclick="filterByDay('Fredag')">Fredag 30/5</button>
+      <button onclick="filterByDay('Lørdag')">Lørdag 30/5</button>
+    </div>
 
-  <!-- Artister -->
-  <div class="artist-grid">
-    {data.map((artist) => <Artist artists={artist} />)}
+    <!-- Artister -->
+    <div class="artist-grid">
+      {data.map((artist) => <Artist artists={artist} />)}
+    </div>
   </div>
 
   <!-- Overlay for artister -->
-  <div id="artistOverlay" class="overlay">
+  <div id="artistOverlay" class="overlay hidden">
     <div class="overlay-content">
       <img id="overlayImg" />
       <div class="overlay-text">
@@ -122,8 +124,8 @@ console.log(data);
 
   .overlay .close-btn {
     position: absolute;
-    top: 40px;
-    right: 45px;
+    top: -5px;
+    right: 12px;
     font-size: 50px;
     background: none;
     border: none;
@@ -151,6 +153,21 @@ console.log(data);
     margin-bottom: 5px;
   }
 
+  .overlay-text h2 {
+    text-align: left;
+    line-height: 1.2;
+  }
+
+  /* Når overlay vises, gør baggrunden mørkere og deaktiver scroll */
+  body.overlay-active {
+    overflow: hidden;
+  }
+
+  #mainContent.dimmed {
+    filter: brightness(0.4);
+    pointer-events: none;
+  }
+
   /********************** TABLET/DESKTOP **********************/
   @media (min-width: 768px) {
     .artist-grid {
@@ -173,6 +190,12 @@ console.log(data);
       margin-left: 0;
     }
 
+    .overlay .close-btn {
+      top: -5px;
+      right: 20px;
+      font-size: 70px;
+    }
+
     .overlay-text {
       width: 50%;
     }
@@ -188,6 +211,14 @@ console.log(data);
   // Overlay-elementet
   const overlay = document.getElementById("artistOverlay");
 
+  function slugify(text) {
+    return text
+      .toLowerCase()
+      .trim()
+      .replace(/\s+/g, "-")
+      .replace(/[^\w\-]+/g, "");
+  }
+
   // Vis overlay med artist-detaljer
   function showOverlay(artist) {
     document.getElementById("overlayImg").src = "img/" + artist.image;
@@ -199,7 +230,6 @@ console.log(data);
 
     const spotifyContainer = document.getElementById("overlaySpotify");
 
-    // Omdan Spotify-link til embed-link
     let embedUrl = "";
     if (
       artist.spotifyEmbedUrl &&
@@ -227,12 +257,25 @@ console.log(data);
 
     overlay.classList.remove("hidden");
     setTimeout(() => overlay.classList.add("show"), 10);
+
+    // Gør baggrund mørk og deaktiver scroll + klik
+    document.body.classList.add("overlay-active");
+    document.getElementById("mainContent").classList.add("dimmed");
+
+    const slug = slugify(artist.name);
+    history.pushState(null, "", `/program/${slug}`);
   }
 
   // Skjul overlay
   function hideOverlay() {
     overlay.classList.remove("show");
     setTimeout(() => overlay.classList.add("hidden"), 500);
+
+    // Fjern mørk baggrund og aktiver scroll + klik igen
+    document.body.classList.remove("overlay-active");
+    document.getElementById("mainContent").classList.remove("dimmed");
+
+    history.pushState(null, "", "/program");
   }
 
   // Tilføj klik-event til artistkort
@@ -261,7 +304,7 @@ console.log(data);
     // Filtrer artistkort
     document.querySelectorAll(".artist-card").forEach((card) => {
       const artist = JSON.parse(card.dataset.artist);
-      const artistDay = artist.day?.toLowerCase();
+      const artistDay = artist.day.toLowerCase();
       const filterDay = day.toLowerCase();
 
       card.style.display =
