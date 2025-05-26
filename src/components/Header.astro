@@ -1,29 +1,23 @@
-<!doctype html>
-<html lang="da">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Av, Min Guldtand</title>
-  </head><header class="site-header">
-    <h1 class="logo">Av, Min Guldtand</h1>
+<header class="site-header">
+  <h1 class="logo">Av, Min Guldtand</h1>
 
-    <div class="burger" id="burger">
-      <span></span>
-      <span></span>
-      <span></span>
+  <div class="burger" id="burger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <nav class="nav-menu" id="navMenu">
+    <div class="menu-top">
+      <h1 class="menu-logo">Av, Min Guldtand</h1>
     </div>
 
-    <nav class="nav-menu" id="navMenu">
-      <div class="menu-top">
-        <h1 class="menu-logo">Av, Min Guldtand</h1>
-        <div class="close" id="close">✕</div>
-      </div>
-      <!-- ← Tilføjet -->
+    <div class="menu-content">
       <ul class="nav-links">
-        <li><a href="#">Program</a></li>
-        <li><a href="#">Billetter</a></li>
-        <li><a href="#">Bliv frivillig</a></li>
-        <li><a href="#">Om os</a></li>
+        <li><a href="/program">Program</a></li>
+        <li><a href="/tickets">Billetter</a></li>
+        <li><a href="/volunteer">Bliv frivillig</a></li>
+        <li><a href="/aboutus">Om os</a></li>
       </ul>
 
       <img
@@ -38,97 +32,224 @@
         <div><a href="https://www.tiktok.com/@av.min.guldtand">TikTok</a></div>
         <div><a href="https://www.facebook.com/AvMinGuldtand">Facebook</a></div>
       </div>
-    </nav>
-  </header>
+    </div>
+  </nav>
+</header>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-    .menu-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-      padding: 1rem 1.5rem;
-      box-sizing: border-box;
+  /* === HEADER === */
+  header.site-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    color: black;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  /* === BURGER ICON === */
+  .burger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 110;
+    transition: 0.3s ease;
+  }
+
+  .burger span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background: black;
+    transition: 0.3s ease;
+  }
+
+  .burger.open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .burger.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .burger.open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .burger:hover span {
+    background: #fffa3c;
+  }
+
+  .burger.open span {
+    background: #fffa3c;
+  }
+
+  /* === BURGER MENU === */
+  .nav-menu {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 80%;
+    background: rgba(0, 0, 0, 0.95);
+    color: white;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+    transition: top 0.4s ease-in-out;
+    overflow-y: auto;
+    box-sizing: border-box;
+  }
+
+  .nav-menu.active {
+    top: 0;
+  }
+
+  /* === MENU-TOP (overskrift til venstre) === */
+  .menu-top {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .menu-logo {
+    color: white;
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: left;
+    word-break: break-word;
+  }
+
+  /* === CENTRERET INDHOLD === */
+  .menu-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .nav-links {
+    list-style: none;
+    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .nav-links li {
+    margin: 1rem 0;
+  }
+
+  .nav-links a {
+    font-size: 1.5rem;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    word-wrap: break-word;
+  }
+
+  .nav-links a:hover {
+    color: #fffa3c;
+  }
+
+  .nav-illustration {
+    max-width: 100px;
+    margin-bottom: 1.5rem;
+    margin-top: -40px;
+  }
+
+  .some-links {
+    font-size: 1rem;
+  }
+
+  .some-links p {
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+  }
+
+  .some-links a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin: 0.25rem 0;
+  }
+
+  .some-links a:hover {
+    color: #fffa3c;
+  }
+  /* === DESKTOP === */
+  @media (min-width: 750px) {
+    .burger,
+    .close,
+    .nav-illustration,
+    .some-links {
+      display: none;
     }
 
     .menu-logo {
-      color: white;
-      font-size: 1.8rem;
-      font-weight: bold;
-      margin: 0;
+      display: none;
     }
+
     header.site-header {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      padding: 1rem 1.5rem;
+      background: transparent;
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      z-index: 100;
-      color: black;
+      align-items: flex-start;
+      padding: 1rem 2rem;
     }
 
     .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-
-    .burger {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      z-index: 110;
-    }
-
-    .burger span {
-      display: block;
-      width: 30px;
-      height: 3px;
-      background: black;
-    }
-
-    .burger:hover span {
-      background: #fffa3c;
+      white-space: nowrap;
+      font-size: 1.6rem;
     }
 
     .nav-menu {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: fixed;
-      inset: 0;
-      background: black;
-      color: white;
-      z-index: 100;
-      text-align: center;
-    }
-
-    .nav-menu.active {
-      display: flex;
+      display: flex !important;
+      justify-content: flex-end;
+      align-items: flex-start;
+      background: none;
+      position: static;
+      height: auto;
+      top: auto;
+      overflow: visible;
+      padding: 0;
+      width: 100%; /* <- Denne linje er afgørende! */
     }
 
     .nav-links {
-      list-style: none;
-      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: row;
+      gap: 2rem;
+      margin: 0;
     }
 
     .nav-links li {
-      margin: 1rem 0;
+      margin: 0;
     }
 
     .nav-links a {
-      color: white;
-      font-size: 2rem;
+      font-size: 1.4rem;
+      color: black;
+      padding: 2rem 0;
       text-decoration: none;
       font-weight: bold;
     }
@@ -136,141 +257,15 @@
     .nav-links a:hover {
       color: #fffa3c;
     }
-
-    .nav-illustration {
-      max-width: 120px;
-      margin-bottom: 1.5rem;
-    }
-
-    .some-links {
-      font-size: 1rem;
-    }
-
-    .some-links p {
-      font-weight: bold;
-      margin-bottom: 0.3rem;
-    }
-
-    .some-links a {
-      display: block;
-      color: white;
-      text-decoration: none;
-      margin: 0.25rem 0;
-    }
-    .some-links a:hover {
-      color: #fffa3c; /* gul hover-effekt */
-    }
-
-    .close {
-      font-size: 3rem;
-      color: white;
-      cursor: pointer;
-      transition: color 0.3s;
-    }
-
-    .close:hover {
-      color: #fffa3c;
-    }
-
-    /* === DESKTOP === */
-    @media (min-width: 750px) {
-      .burger,
-      .close,
-      .nav-illustration,
-      .some-links {
-        display: none;
-      }
-
-      .menu-logo {
-        display: none;
-      }
-      .nav-menu {
-        display: flex !important;
-        flex-direction: row;
-        justify-content: space-between;
-        background: none;
-        position: static;
-      }
-
-      .nav-links {
-        display: flex;
-        flex-direction: row;
-        gap: 2rem;
-        margin: 0;
-      }
-
-      .nav-links li {
-        margin: 0;
-      }
-
-      .nav-links a {
-        font-size: 1.4rem;
-        color: black;
-        padding: 2rem 0; /* mere vertikal luft */
-      }
-
-      .nav-links a:hover {
-        color: #fffa3c;
-      }
-
-      header.site-header {
-        background: transparent;
-      }
-    }
-  </style>
-
-  <script>
-    const burger = document.getElementById("burger");
-    const navMenu = document.getElementById("navMenu");
-    const close = document.getElementById("close");
-
-    burger.addEventListener("click", () => {
-      navMenu.classList.add("active");
-      burger.style.display = "none";
-    });
-
-    close.addEventListener("click", () => {
-      navMenu.classList.remove("active");
-      burger.style.display = "flex";
-    });
-  </script>
-
-  <!-- <header>
-  <a href="/" class="logo">Av, Min Guldtand</a>
-  <nav>
-    <ul>
-      <li><a href="/program">Program</a></li>
-      <li><a href="tickets">Billetter</a></li>
-      <li><a href="/volunteer">Bliv frivillig</a></li>
-      <li><a href="/aboutus">Om os</a></li>
-    </ul>
-  </nav>
-</header>
-
-<style>
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
   }
+</style>
 
-  .logo {
-    text-decoration: none;
-    color: white;
-  }
+<script>
+  const burger = document.getElementById("burger");
+  const navMenu = document.getElementById("navMenu");
 
-  nav ul {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-  }
-
-  nav a {
-    text-decoration: none;
-    color: white;
-  }
-</style> -->
-
-
-</html>
+  burger.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+    burger.classList.toggle("open");
+  });
+</script>

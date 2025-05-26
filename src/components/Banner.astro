@@ -1,22 +1,29 @@
-<div class="bildebanner_wrapper">
+<div class="bildebanner-wrapper">
   <div class="bildebanner">
-    <img src="../../public/img/bildebanner.webp" alt="" />
-    <img src="../../public/img/bildebanner.webp" alt="" />
+    <div class="bildebanner-track">
+      <img src="../img/bildebanner.webp" alt="" />
+      <img src="../img/bildebanner.webp" alt="" />
+    </div>
   </div>
 </div>
 
 <style>
   .bildebanner-wrapper {
-    width: 100%;
+    width: 100vw;
     overflow: hidden;
-    background-color: #ece8dd;
+    position: relative;
+    margin: -35px;
+    margin-top: 40px;
   }
 
   .bildebanner {
     display: flex;
-    width: fit-content;
+    width: max-content;
     animation: scroll-left 25s linear infinite;
-    margin-top: 50px;
+  }
+
+  .bildebanner-track {
+    display: flex;
   }
 
   .bildebanner img {
@@ -28,7 +35,7 @@
 
   @keyframes scroll-left {
     0% {
-      transform: translateX(0);
+      transform: translateX(0%);
     }
     100% {
       transform: translateX(-50%);
@@ -36,12 +43,16 @@
   }
 
   @media (min-width: 768px) {
-    .bildebanner {
-      margin-top: 80px;
-    }
-
     .bildebanner img {
       max-height: 280px;
+    }
+    .bildebanner-wrapper {
+      width: 100vw;
+      overflow: hidden;
+      position: relative;
+      margin-left: calc(-1 * var(--global-margin-left, 35px));
+      margin-right: 0; /* sikrer ikke at højre margin bliver negativ */
+      margin-top: 40px;
     }
   }
 </style>
