@@ -1,4 +1,241 @@
-<!-- <header>
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Av, Min Guldtand</title>
+  </head><header class="site-header">
+    <h1 class="logo">Av, Min Guldtand</h1>
+
+    <div class="burger" id="burger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <nav class="nav-menu" id="navMenu">
+      <div class="menu-top">
+        <h1 class="menu-logo">Av, Min Guldtand</h1>
+        <div class="close" id="close">✕</div>
+      </div>
+      <!-- ← Tilføjet -->
+      <ul class="nav-links">
+        <li><a href="#">Program</a></li>
+        <li><a href="#">Billetter</a></li>
+        <li><a href="#">Bliv frivillig</a></li>
+        <li><a href="#">Om os</a></li>
+      </ul>
+
+      <img
+        src="img/Hundillustration.webp"
+        alt="Illustration"
+        class="nav-illustration"
+      />
+
+      <div class="some-links">
+        <p>Følg med her</p>
+        <a href="https://www.instagram.com/avminguldtand/">Instagram</a>
+        <div><a href="https://www.tiktok.com/@av.min.guldtand">TikTok</a></div>
+        <div><a href="https://www.facebook.com/AvMinGuldtand">Facebook</a></div>
+      </div>
+    </nav>
+  </header>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .menu-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 1rem 1.5rem;
+      box-sizing: border-box;
+    }
+
+    .menu-logo {
+      color: white;
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin: 0;
+    }
+    header.site-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      color: black;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .burger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      z-index: 110;
+    }
+
+    .burger span {
+      display: block;
+      width: 30px;
+      height: 3px;
+      background: black;
+    }
+
+    .burger:hover span {
+      background: #fffa3c;
+    }
+
+    .nav-menu {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      inset: 0;
+      background: black;
+      color: white;
+      z-index: 100;
+      text-align: center;
+    }
+
+    .nav-menu.active {
+      display: flex;
+    }
+
+    .nav-links {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+
+    .nav-links li {
+      margin: 1rem 0;
+    }
+
+    .nav-links a {
+      color: white;
+      font-size: 2rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .nav-links a:hover {
+      color: #fffa3c;
+    }
+
+    .nav-illustration {
+      max-width: 120px;
+      margin-bottom: 1.5rem;
+    }
+
+    .some-links {
+      font-size: 1rem;
+    }
+
+    .some-links p {
+      font-weight: bold;
+      margin-bottom: 0.3rem;
+    }
+
+    .some-links a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      margin: 0.25rem 0;
+    }
+    .some-links a:hover {
+      color: #fffa3c; /* gul hover-effekt */
+    }
+
+    .close {
+      font-size: 3rem;
+      color: white;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .close:hover {
+      color: #fffa3c;
+    }
+
+    /* === DESKTOP === */
+    @media (min-width: 750px) {
+      .burger,
+      .close,
+      .nav-illustration,
+      .some-links {
+        display: none;
+      }
+
+      .menu-logo {
+        display: none;
+      }
+      .nav-menu {
+        display: flex !important;
+        flex-direction: row;
+        justify-content: space-between;
+        background: none;
+        position: static;
+      }
+
+      .nav-links {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        margin: 0;
+      }
+
+      .nav-links li {
+        margin: 0;
+      }
+
+      .nav-links a {
+        font-size: 1.4rem;
+        color: black;
+        padding: 2rem 0; /* mere vertikal luft */
+      }
+
+      .nav-links a:hover {
+        color: #fffa3c;
+      }
+
+      header.site-header {
+        background: transparent;
+      }
+    }
+  </style>
+
+  <script>
+    const burger = document.getElementById("burger");
+    const navMenu = document.getElementById("navMenu");
+    const close = document.getElementById("close");
+
+    burger.addEventListener("click", () => {
+      navMenu.classList.add("active");
+      burger.style.display = "none";
+    });
+
+    close.addEventListener("click", () => {
+      navMenu.classList.remove("active");
+      burger.style.display = "flex";
+    });
+  </script>
+
+  <!-- <header>
   <a href="/" class="logo">Av, Min Guldtand</a>
   <nav>
     <ul>
@@ -34,3 +271,6 @@
     color: white;
   }
 </style> -->
+
+
+</html>
