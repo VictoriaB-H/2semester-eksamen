@@ -1,126 +1,113 @@
-<section class="footer-section">
-  <footer class="site-footer">
-    <div class="footer-grid">
-      <div class="footer-column logo-column">
-        <h2>Av, Min Guldtand</h2>
-      </div>
-
-      <div class="footer-column address-column">
-        <p>
-          Foreningen Av Min Guldtand,<br />
-          Kildegårdsvej 5, 3220 Tisvildeleje<br />
-        </p>
-        <p>
-          Kontakt:
-          <a href="mailto:arthur@avminguldtand.dk">arthur@avminguldtand.dk</a>
-        </p>
-
-        <p>CVR: 39916347</p>
-      </div>
-
-      <div class="footer-column social-column">
-        <p>Følg med her</p>
-        <div>
-          <a href="https://www.instagram.com/avminguldtand/">Instagram</a>
-        </div>
-        <div><a href="https://www.facebook.com/AvMinGuldtand">Facebook</a></div>
-        <div><a href="https://www.tiktok.com/@av.min.guldtand">TikTok</a></div>
-      </div>
-
-      <div class="footer-column illustration-column">
-        <img
-          src="img/Mandillustration.webp"
-          alt="Illustration"
-          class="footer-illustration"
-        />
-      </div>
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-block logo-block">
+      <h2>Av, Min Guldtand</h2>
     </div>
 
-    <p class="copyright">©2023 Av, Min Guldtand. All rights reserved.</p>
-  </footer>
-</section>
+    <div class="footer-block">
+      <p>Foreningen Av Min Guldtand,<br />Kildegårdsvej 5, 3220 Tisvildeleje</p>
+      <p>
+        Kontakt: <a href="mailto:arthur@avminguldtand.dk"
+          >arthur@avminguldtand.dk</a
+        ><br />
+        CVR: 39916347
+      </p>
+    </div>
+
+    <div class="footer-block">
+      <p><strong>Følg med her</strong></p>
+      <p>
+        <a
+          href="https://www.instagram.com/avminguldtand/"
+          target="_blank"
+          rel="noopener noreferrer">Instagram</a
+        >
+        <br />
+        <a
+          href="https://www.facebook.com/AvMinGuldtand"
+          target="_blank"
+          rel="noopener noreferrer">Facebook</a
+        >
+        <br />
+        <a
+          href="https://www.tiktok.com/@av.min.guldtand"
+          target="_blank"
+          rel="noopener noreferrer">TikTok</a
+        >
+      </p>
+    </div>
+
+    <div class="footer-block illustration-block">
+      <img
+        src="/img/Mandillustration.webp"
+        alt="Illustration"
+        class="footer-illustration"
+      />
+    </div>
+  </div>
+
+  <p class="copyright">©2023 Av, Min Guldtand. All rights reserved.</p>
+</footer>
 
 <style>
-  .footer-section {
-    background-color: black;
-    color: white;
-  }
-
   .site-footer {
-    padding: 2rem 1rem;
+    margin: 0 20px;
+    margin-top: 90px;
     text-align: center;
-    font-family: sans-serif;
+    padding-bottom: 10px;
   }
 
   .footer-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    text-align: left;
+    display: flex;
+    flex-direction: column;
   }
 
-  .footer-column {
-    text-align: center;
-  }
-  .footer-column h2 {
-    font-size: 2.2rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
+  .footer-block h2 {
+    margin-bottom: 20px;
+    font-size: 40px;
   }
 
-  .footer-column p,
-  .footer-column a {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin: 0.5rem 0;
+  .footer-block a {
     color: white;
     text-decoration: none;
   }
 
-  .footer-column a:hover {
+  .footer-block a:hover {
     color: #fffa3c;
   }
 
   .footer-illustration {
-    max-width: 140px;
-    margin: 2rem auto 0;
-    display: block;
+    margin-top: 20px;
   }
 
   .copyright {
-    font-size: 0.9rem;
-    color: #fffdfd;
-    margin-top: 1rem;
-    text-align: center;
+    margin-top: 20px;
+    color: #fff;
   }
 
-  @media (min-width: 800px) {
+  /* DESKTOP layout */
+  @media (min-width: 768px) {
     .footer-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr); /* Ens kolonner */
-      gap: 6rem; /* Justér afstand mellem kolonner */
-      padding: 3rem 4rem;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 3rem;
+      padding: 0 6%;
       text-align: left;
     }
 
-    .footer-column {
-      text-align: left;
+    .logo-block {
+      align-self: center;
     }
-    .footer-column h2 {
-      font-size: 1.8rem;
-      font-weight: bold;
-      margin-bottom: 1rem;
-    }
+
     .footer-illustration {
-      max-width: 90px;
-      margin: 0 auto;
+      max-width: 100px;
+      margin: 0;
     }
 
     .copyright {
-      margin-top: 2rem;
-      font-size: 0.9rem;
-      color: #ffffff;
       text-align: center;
+      margin-top: 1.5rem;
+      margin-bottom: 20px;
     }
   }
 </style>
