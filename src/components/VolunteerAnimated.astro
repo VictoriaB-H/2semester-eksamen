@@ -4,9 +4,9 @@ import VolunteerInfo from "../components/VolunteerInfo.astro";
 
 <div class="grid_blivfrivillig">
   <div class="frivillig_bilder">
-    <img class="bilde3" src="../../public/img/frivillig_bilde3.webp" alt="" />
-    <img class="bilde2" src="../../public/img/frivillig_bilde2.webp" alt="" />
-    <img class="bilde1" src="../../public/img/frivillig_bilde1.webp" alt="" />
+    <img class="bilde3" src="../img/frivillig_bilde3.webp" alt="" />
+    <img class="bilde2" src="../img/frivillig_bilde2.webp" alt="" />
+    <img class="bilde1" src="../img/frivillig_bilde1.webp" alt="" />
   </div>
   <div>
     <VolunteerInfo />
@@ -27,9 +27,12 @@ import VolunteerInfo from "../components/VolunteerInfo.astro";
     grid-template-columns: 1fr;
     padding: 30px;
     position: relative;
-    width: 400px; /* juster størrelse etter behov */
+    width: 300px; /* mobil */
     height: 400px;
     margin: auto;
+    transition:
+      width 0.5s ease,
+      padding 0.5s ease; /* Tilføj smooth transition */
   }
 
   .frivillig_bilder img {
@@ -41,27 +44,17 @@ import VolunteerInfo from "../components/VolunteerInfo.astro";
     width: 100%;
     height: auto;
     transform-origin: center;
-    transition:
-      transform 1s ease,
-      top 1s ease,
-      left 1s ease;
-    animation: stackInn 6s infinite;
+    transition: transform 1s ease;
   }
 
   .frivillig_bilder img:nth-child(1) {
     transform: rotate(-7deg);
-    z-index: 1;
-    animation-delay: 0s;
   }
   .frivillig_bilder img:nth-child(2) {
     transform: rotate(5deg);
-    z-index: 2;
-    animation-delay: 2s;
   }
   .frivillig_bilder img:nth-child(3) {
     transform: rotate(-3deg);
-    z-index: 3;
-    animation-delay: 4s;
   }
 
   @media (min-width: 768px) {
@@ -73,6 +66,7 @@ import VolunteerInfo from "../components/VolunteerInfo.astro";
 
     .frivillig_bilder {
       padding: 0px;
+      width: 350px; /* tablet */
     }
   }
 
@@ -80,24 +74,23 @@ import VolunteerInfo from "../components/VolunteerInfo.astro";
     .grid_blivfrivillig {
       padding: 100px;
     }
-  }
 
-  @keyframes stackInn {
-    0% {
-      top: -80px;
-      left: -80px;
-      opacity: 0.7;
-    }
-    30%,
-    60% {
-      top: 0px;
-      left: 0px;
-      opacity: 1;
-    }
-    100% {
-      top: 80px;
-      left: 80px;
-      opacity: 0.7;
+    .frivillig_bilder {
+      width: 400px; /* desktop */
+      margin-top: 15px;
     }
   }
 </style>
+
+<script>
+  const images = document.querySelectorAll(".frivillig_bilder img");
+  let currentTop = images.length - 1;
+
+  setInterval(() => {
+    images.forEach((img, index) => {
+      img.style.zIndex = index === currentTop ? images.length : index;
+    });
+
+    currentTop = (currentTop - 1 + images.length) % images.length;
+  }, 2000); // Skifter billede hvert 2. sekund
+</script>
