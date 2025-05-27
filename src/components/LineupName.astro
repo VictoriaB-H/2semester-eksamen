@@ -37,6 +37,7 @@
   <a href="program.astro" class="zuloo">ZULOO</a>
   <a href="program.astro" class="bukuru">BUKURU</a>
   <a href="program.astro" class="standart">STANDART</a>
+  <img src="../img/lineup_mann.png" alt="" />
 </div>
 
 <style>
@@ -58,14 +59,10 @@
     font-family: owners-text;
   } */
 
-  body {
-    text-align: center;
-  }
-
   .artist_grid {
     display: grid;
     grid-template-columns: repeat(33, 1fr);
-    gap: 8px;
+    gap: 6px;
     margin: 0;
     padding: 30px;
   }
@@ -75,6 +72,11 @@
     font-size: 20px;
     font-family: owners-text;
     text-align: center;
+  }
+
+  .artist_grid img {
+    grid-column: 14 / span 3;
+    grid-row: 10;
   }
 
   /* grid placement */
@@ -261,6 +263,11 @@
       font-size: 20px;
       font-family: owners-text;
       text-align: center;
+    }
+
+    .artist_grid img {
+      grid-column: 37 / span 3;
+      grid-row: 4;
     }
 
     /* grid placement */
