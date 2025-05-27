@@ -14,12 +14,8 @@ if (!overskrift || !beskrivelse || !readmore) {
   <details>
     <summary class="readmore">+ {readmore}</summary>
     <div class="goder-text">
-      <ul>
-        <li>Partout festivalarmbånd</li>
-        <li>4x drinksbilletter</li>
-        <li>Invitation til frivilligfest</li>
-        <li>En mega sjov og fed tid sammen med andre frivillige</li>
-      </ul>
+      Partout festivalarmbånd. 4x drinksbilletter. Invitation til frivilligfest.
+      En mega sjov og fed tid sammen med andre frivillige
     </div>
   </details>
 </article>
@@ -28,15 +24,20 @@ if (!overskrift || !beskrivelse || !readmore) {
   .card {
     border: 1px solid white;
     padding: 1.5rem;
+    background: black;
+    box-sizing: border-box;
+    color: white;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-width: 230px;
+    min-height: 250px;
+    flex-shrink: 0;
   }
+
   h4 {
     text-align: center;
-    margin: 0;
-    margin-bottom: 10px;
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
   }
 
   .beskrivelse {
@@ -53,17 +54,16 @@ if (!overskrift || !beskrivelse || !readmore) {
 
   summary {
     font-size: 1.2rem;
-    font-family: owners-text, sans-serif;
+    list-style: none;
+    outline: none;
     color: white;
     transition: color 0.2s ease;
     cursor: pointer;
-    list-style: none;
-    outline: none;
-    -webkit-appearance: none;
+    font-family: owners-text, sans-serif;
   }
 
-  summary::-webkit-details-marker {
-    display: none;
+  summary:hover {
+    color: #fffa3c;
   }
 
   .goder-text {
@@ -71,35 +71,12 @@ if (!overskrift || !beskrivelse || !readmore) {
     font-size: 0.95rem;
     font-family: owners-text, sans-serif;
   }
-  .goder-text ul {
-    padding-left: 1.2rem;
-    margin: 0;
-  }
 
-  .goder-text li {
-    margin-bottom: 0.5rem;
-  }
-  .readmore {
-    font-family: owners-text, sans-serif;
-  }
-  summary {
-    font-size: 1.2rem;
-    list-style: none;
-    outline: none;
-    color: white;
-    transition: color 0.2s ease;
-    cursor: pointer;
-  }
-
-  summary:hover {
-    color: #fffa3c; /* GUL */
-  }
   @media (max-width: 768px) {
     .card {
       scroll-snap-align: center;
       flex: 0 0 80%;
       min-width: 280px;
-      margin: 0 auto; /* ← Centrerer kortet i containeren */
     }
   }
 </style>

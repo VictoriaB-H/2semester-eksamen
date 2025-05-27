@@ -33,15 +33,16 @@ import Card from "../components/AssignmentsCard.astro";
 
 <style>
   .aktivitets-cards {
-    max-width: 1200px; /* Begrænset bredde */
-    margin: 0 auto; /* Centrerer på siden */
-    padding: 2rem 1rem; /* Lige margin på begge sider */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
   }
 
   .cards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
+    align-items: stretch;
   }
 
   @media (max-width: 1024px) {
@@ -56,16 +57,11 @@ import Card from "../components/AssignmentsCard.astro";
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       gap: 10px;
-      padding: 0 10vw; /* ← Giver luft i hver side */
+      padding: 0 10vw;
     }
 
     .cards::-webkit-scrollbar {
       display: none;
-    }
-
-    .card {
-      scroll-snap-align: center;
-      flex: 0 0 80%;
     }
   }
 </style>
