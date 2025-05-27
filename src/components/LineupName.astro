@@ -22,21 +22,21 @@
   <a href="program.astro" class="standart">STANDART</a>
 </div> -->
 <div class="artist_grid">
-  <a href="program.astro" class="vonquar">VON QUAR</a>
-  <a href="program.astro" class="will">WILL</a>
-  <a href="program.astro" class="aphaca">APHACA</a>
-  <a href="program.astro" class="maurinstarr">MAURINSTARR</a>
-  <a href="program.astro" class="laura4evigt">LAURA4EVIGT</a>
-  <a href="program.astro" class="avemaria">AVE MARIA B2B VALENTINA</a>
-  <a href="program.astro" class="guldlokk">GULDLOKK</a>
-  <a href="program.astro" class="guzo">GUZO</a>
-  <a href="program.astro" class="kayak">KAYAK</a>
-  <a href="program.astro" class="karoline">KAROLINE FUNDER</a>
-  <a href="program.astro" class="tigeroak">TIGEROAK</a>
-  <a href="program.astro" class="blush">BLUSH</a>
-  <a href="program.astro" class="zuloo">ZULOO</a>
-  <a href="program.astro" class="bukuru">BUKURU</a>
-  <a href="program.astro" class="standart">STANDART</a>
+  <a href="program" class="vonquar">VON QUAR</a>
+  <a href="program" class="will">WILL</a>
+  <a href="program" class="aphaca">APHACA</a>
+  <a href="program" class="maurinstarr">MAURINSTARR</a>
+  <a href="program" class="laura4evigt">LAURA4EVIGT</a>
+  <a href="program" class="avemaria">AVE MARIA B2B VALENTINA</a>
+  <a href="program" class="guldlokk">GULDLOKK</a>
+  <a href="program" class="guzo">GUZO</a>
+  <a href="program" class="kayak">KAYAK</a>
+  <a href="program" class="karoline">KAROLINE FUNDER</a>
+  <a href="program" class="tigeroak">TIGEROAK</a>
+  <a href="program" class="blush">BLUSH</a>
+  <a href="program" class="zuloo">ZULOO</a>
+  <a href="program" class="bukuru">BUKURU</a>
+  <a href="program" class="standart">STANDART</a>
   <img src="../img/lineup_mann.png" alt="" />
 </div>
 
@@ -64,7 +64,7 @@
     grid-template-columns: repeat(33, 1fr);
     gap: 6px;
     margin: 0;
-    padding: 30px;
+    padding: 0;
   }
 
   .artist_grid a {
@@ -248,14 +248,88 @@
     font-weight: 700;
   }
 
+  /* grid placement */
+
+  .vonquar {
+    grid-column: 5 / span 8;
+    grid-row: 1;
+  }
+
+  .will {
+    grid-column: 14 / span 4;
+    grid-row: 1;
+  }
+
+  .aphaca {
+    grid-column: 19 / span 7;
+    grid-row: 1;
+  }
+
+  .maurinstarr {
+    grid-column: 27 / span 10;
+    grid-row: 1;
+  }
+
+  .laura4evigt {
+    grid-column: 1 / span 10;
+    grid-row: 2;
+  }
+
+  .avemaria {
+    grid-column: 12 / span 20;
+    grid-row: 2;
+  }
+
+  .guldlokk {
+    grid-column: 33 / span 8;
+    grid-row: 2;
+  }
+
+  .guzo {
+    grid-column: 4 / span 5;
+    grid-row: 3;
+  }
+
+  .kayak {
+    grid-column: 10 / span 5;
+    grid-row: 3;
+  }
+
+  .karoline {
+    grid-column: 15 / span 15;
+    grid-row: 3;
+  }
+
+  .tigeroak {
+    grid-column: 30 / span 8;
+    grid-row: 3;
+  }
+
+  .blush {
+    grid-column: 7 / span 5;
+    grid-row: 4;
+  }
+
+  .zuloo {
+    grid-column: 13 / span 6;
+    grid-row: 4;
+  }
+
+  .bukuru {
+    grid-column: 19 / span 8;
+    grid-row: 4;
+  }
+
+  .standart {
+    grid-column: 27 / span 8;
+    grid-row: 4;
+  }
   @media (min-width: 768px) {
     .artist_grid {
       display: grid;
       grid-template-columns: repeat(40, 1fr);
       gap: 10px;
       max-width: 1200px;
-      margin: 0;
-      padding: 50px;
     }
 
     .artist_grid a {
@@ -267,83 +341,6 @@
 
     .artist_grid img {
       grid-column: 37 / span 3;
-      grid-row: 4;
-    }
-
-    /* grid placement */
-
-    .vonquar {
-      grid-column: 5 / span 8;
-      grid-row: 1;
-    }
-
-    .will {
-      grid-column: 14 / span 4;
-      grid-row: 1;
-    }
-
-    .aphaca {
-      grid-column: 19 / span 7;
-      grid-row: 1;
-    }
-
-    .maurinstarr {
-      grid-column: 27 / span 10;
-      grid-row: 1;
-    }
-
-    .laura4evigt {
-      grid-column: 1 / span 10;
-      grid-row: 2;
-    }
-
-    .avemaria {
-      grid-column: 12 / span 20;
-      grid-row: 2;
-    }
-
-    .guldlokk {
-      grid-column: 33 / span 8;
-      grid-row: 2;
-    }
-
-    .guzo {
-      grid-column: 4 / span 5;
-      grid-row: 3;
-    }
-
-    .kayak {
-      grid-column: 10 / span 5;
-      grid-row: 3;
-    }
-
-    .karoline {
-      grid-column: 15 / span 15;
-      grid-row: 3;
-    }
-
-    .tigeroak {
-      grid-column: 30 / span 8;
-      grid-row: 3;
-    }
-
-    .blush {
-      grid-column: 7 / span 5;
-      grid-row: 4;
-    }
-
-    .zuloo {
-      grid-column: 13 / span 6;
-      grid-row: 4;
-    }
-
-    .bukuru {
-      grid-column: 19 / span 8;
-      grid-row: 4;
-    }
-
-    .standart {
-      grid-column: 27 / span 8;
       grid-row: 4;
     }
   }

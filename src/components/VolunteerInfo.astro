@@ -16,12 +16,18 @@
     glæder os til at have dig med på holdet.
   </p>
 </div>
-<a href="volunteer.astro" class="btn2">LÆS MERE</a>
+<div class="button">
+  <a href="volunteer" class="btn2">LÆS MERE</a>
+</div>
 
 <style>
+  .button {
+    text-align: center;
+  }
+
   .btn2 {
     display: inline-block;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 2.5rem;
     border: 2px solid white;
     text-decoration: none;
     font-weight: bold;
@@ -44,11 +50,14 @@
 
   @media (min-width: 1024px) {
     p {
-      margin-bottom: 50px;
+      margin-top: 0px;
     }
 
     .btn2 {
       margin-top: 30px;
+    }
+    .button {
+      text-align: left;
     }
   }
 </style>
