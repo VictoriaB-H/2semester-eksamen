@@ -7,7 +7,18 @@ import Banner from "../components/Banner.astro";
 
 <Layout>
   <h1>BILLETTER</h1>
-  <TicketWithVideo />
+
+  <div class="section-spacing">
+    <TicketWithVideo />
+  </div>
+
   <LineupName />
+
   <Banner />
 </Layout>
+
+<style>
+  .section-spacing {
+    margin-bottom: 140px;
+  }
+</style>
