@@ -103,7 +103,11 @@ console.log(data);
     background-color: black;
     overflow-y: auto;
     transform: translateX(100%);
+    z-index: 9999;
     transition: transform 0.5s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .overlay.show {
@@ -113,7 +117,7 @@ console.log(data);
   .overlay-content {
     background-color: #000000;
     position: relative;
-    padding: 10%;
+    padding: 6%;
   }
 
   .overlay-content img {
@@ -141,6 +145,12 @@ console.log(data);
     display: none;
   }
 
+  header.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
   /* Dag ig tid */
   .day-time-box {
     display: flex;
@@ -150,12 +160,14 @@ console.log(data);
   .day-time-item {
     border: 1px solid white;
     padding: 5px 15px;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
   }
 
   .overlay-text h2 {
     text-align: left;
     line-height: 1.2;
+    margin-top: 20px;
+    margin-bottom: 0px;
   }
 
   /* Når overlay vises, gør baggrunden mørkere og deaktiver scroll */
@@ -169,9 +181,9 @@ console.log(data);
   }
 
   /********************** TABLET/DESKTOP **********************/
-  @media (min-width: 768px) {
+  @media (min-width: 900px) {
     .artist-grid {
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
       gap: 50px;
     }
     .overlay {
@@ -181,8 +193,8 @@ console.log(data);
     }
     .overlay-content {
       display: flex;
-      align-items: center;
-      margin: auto;
+      /* align-items: center; */
+      align-items: flex-start;
     }
 
     .overlay-content img {
@@ -202,6 +214,7 @@ console.log(data);
 
     .overlay-text h2 {
       line-height: 1;
+      margin: 0;
     }
   }
 </style>
@@ -262,6 +275,9 @@ console.log(data);
     document.body.classList.add("overlay-active");
     document.getElementById("mainContent").classList.add("dimmed");
 
+    // Skjul header
+    document.querySelector("header")?.classList.add("hidden");
+
     const slug = slugify(artist.name);
     history.pushState(null, "", `/program/${slug}`);
   }
@@ -274,6 +290,9 @@ console.log(data);
     // Fjern mørk baggrund og aktiver scroll + klik igen
     document.body.classList.remove("overlay-active");
     document.getElementById("mainContent").classList.remove("dimmed");
+
+    // Viser header igen
+    document.querySelector("header")?.classList.remove("hidden");
 
     history.pushState(null, "", "/program");
   }

@@ -25,8 +25,8 @@ import VolunteerInfo from "../components/VolunteerInfo.astro";
   .frivillig_bilder {
     display: grid;
     grid-template-columns: 1fr;
-    padding: 30px;
-    margin-top: -40;
+    padding: 0 30px;
+    padding-bottom: 30px;
   }
 
   .frivillig_bilder img {
@@ -35,14 +35,36 @@ import VolunteerInfo from "../components/VolunteerInfo.astro";
   }
 
   @media (min-width: 768px) {
+    img {
+      max-width: 100%;
+    }
+    .bilde3 {
+      max-width: 90%;
+    }
     .grid_blivfrivillig {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 50px;
+      margin-bottom: 70px;
     }
 
     .frivillig_bilder {
       padding: 0px;
+    }
+  }
+
+  @media (min-width: 1270px) {
+    img {
+      max-width: 70%;
+    }
+
+    .bilde3 {
+      max-width: 60%;
+    }
+
+    .grid_blivfrivillig {
+      gap: 0px;
+      padding: 0 95px;
     }
   }
 </style>
