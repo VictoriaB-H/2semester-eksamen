@@ -62,14 +62,13 @@
   .artist_grid {
     display: grid;
     grid-template-columns: repeat(33, 1fr);
-    gap: 6px;
-    margin: 0 auto;
-    padding: 0 30px;
+    gap: 5px;
+    margin: 0 -10px;
   }
 
   .artist_grid a {
     text-decoration: none;
-    font-size: 20px;
+    font-size: 15px;
     font-family: owners-text;
     text-align: center;
   }
@@ -246,6 +245,31 @@
   /* hover black */
   .blush:hover {
     font-weight: 700;
+  }
+
+  @media (min-width: 500px) {
+    .artist_grid {
+      display: grid;
+      grid-template-columns: repeat(33, 1fr);
+      gap: 5px;
+      margin: 0;
+      padding: 0 30px;
+    }
+    .artist_grid a {
+      font-size: 18px;
+    }
+  }
+  @media (min-width: 600px) {
+    .artist_grid {
+      display: grid;
+      grid-template-columns: repeat(33, 1fr);
+      gap: 10px;
+      margin: 0 auto;
+      padding: 0 30px;
+    }
+    .artist_grid a {
+      font-size: 20px;
+    }
   }
 
   @media (min-width: 768px) {
