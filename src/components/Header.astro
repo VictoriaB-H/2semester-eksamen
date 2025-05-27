@@ -1,5 +1,12 @@
-<header class="site-header">
-  <h1 class="logo">Av, Min Guldtand</h1>
+---
+const { isHome = false } = Astro.props;
+---
+
+<!-- === HTML / Struktur === -->
+<header class={`site-header ${isHome ? "home-header" : "default-header"}`}>
+  <h1 class="logo">
+    <a href="/" class="logo-link">Av, Min Guldtand</a>
+  </h1>
 
   <div class="burger" id="burger">
     <span></span>
@@ -7,12 +14,14 @@
     <span></span>
   </div>
 
+  <!-- Navigation -->
   <nav class="nav-menu" id="navMenu">
     <div class="menu-top">
       <h1 class="menu-logo">Av, Min Guldtand</h1>
     </div>
 
     <div class="menu-content">
+      <!-- Navigation – bruges både til mobil og desktop -->
       <ul class="nav-links">
         <li><a href="/program">Program</a></li>
         <li><a href="/tickets">Billetter</a></li>
@@ -20,36 +29,57 @@
         <li><a href="/aboutus">Om os</a></li>
       </ul>
 
+      <!-- Kun synlig på mobil -->
       <img
         src="img/Hundillustration.webp"
         alt="Illustration"
-        class="nav-illustration"
+        class="nav-illustration mobile-only"
       />
 
-      <div class="some-links">
-        <p>Følg med her</p>
+      <div class="some-links mobile-only">
+        <p><strong>Følg med her</strong></p>
         <a href="https://www.instagram.com/avminguldtand/">Instagram</a>
-        <div><a href="https://www.tiktok.com/@av.min.guldtand">TikTok</a></div>
-        <div><a href="https://www.facebook.com/AvMinGuldtand">Facebook</a></div>
+        <a href="https://www.tiktok.com/@av.min.guldtand">TikTok</a>
+        <a href="https://www.facebook.com/AvMinGuldtand">Facebook</a>
       </div>
     </div>
   </nav>
 </header>
 
+<!-- === CSS === -->
 <style>
   * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
   }
 
-  /* === HEADER === */
-  header.site-header {
+  /* Andre sider (hvid tekst) */
+  .default-header {
+    color: white;
+  }
+
+  .default-header .burger span {
+    background: white;
+  }
+
+  .default-header .nav-links a {
+    color: white;
+  }
+
+  .default-header .logo-link {
+    color: white;
+  }
+
+  .logo a {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+  }
+
+  .site-header {
     position: absolute;
     top: 0;
-    left: 0;
     width: 100%;
-    padding: 1rem 1.5rem;
+    padding: 25px 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,23 +87,25 @@
     color: black;
   }
 
-  .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
+  .logo,
+  .menu-logo {
+    font-size: 25px;
+    margin: 0;
+    white-space: nowrap;
   }
 
-  /* === BURGER ICON === */
+  /* === BURGER === */
   .burger {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    justify-content: center;
+    gap: 6px;
     cursor: pointer;
     z-index: 110;
     transition: 0.3s ease;
   }
 
   .burger span {
-    display: block;
     width: 30px;
     height: 3px;
     background: black;
@@ -92,180 +124,136 @@
     transform: translateY(-8px) rotate(-45deg);
   }
 
-  .burger:hover span {
-    background: #fffa3c;
-  }
-
+  .burger:hover span,
   .burger.open span {
-    background: #fffa3c;
+    background: #fffa3c !important;
   }
 
-  /* === BURGER MENU === */
+  /* === NAV MENU === */
   .nav-menu {
     position: fixed;
     top: -100%;
     left: 0;
     width: 100%;
     height: 80%;
-    background: rgba(0, 0, 0, 0.95);
+    background-color: black;
     color: white;
-    z-index: 100;
-    display: flex;
-    flex-direction: column;
-    padding: 2rem 1.5rem;
     transition: top 0.4s ease-in-out;
-    overflow-y: auto;
-    box-sizing: border-box;
   }
 
   .nav-menu.active {
     top: 0;
   }
 
-  /* === MENU-TOP (overskrift til venstre) === */
   .menu-top {
-    width: 100%;
-    max-width: 500px;
     display: flex;
-    justify-content: flex-start;
+    padding: 25px 15px;
   }
 
-  .menu-logo {
-    color: white;
-    font-size: 1.4rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    text-align: left;
-    word-break: break-word;
-  }
-
-  /* === CENTRERET INDHOLD === */
   .menu-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     text-align: center;
-    width: 100%;
   }
 
   .nav-links {
     list-style: none;
-    margin-bottom: 2rem;
-    width: 100%;
-    max-width: 500px;
+    padding: 0;
+    margin-top: 25px;
   }
 
   .nav-links li {
-    margin: 1rem 0;
+    margin-bottom: 15px;
   }
 
   .nav-links a {
-    font-size: 1.5rem;
+    font-size: 25px;
     text-decoration: none;
-    font-weight: bold;
     color: white;
-    word-wrap: break-word;
+    font-family: "Anton", sans-serif;
   }
 
+  .default-header .nav-links a:hover,
   .nav-links a:hover {
     color: #fffa3c;
   }
 
   .nav-illustration {
-    max-width: 100px;
-    margin-bottom: 1.5rem;
-    margin-top: -40px;
+    max-width: 80px;
   }
 
   .some-links {
-    font-size: 1rem;
-  }
-
-  .some-links p {
-    font-weight: bold;
-    margin-bottom: 0.3rem;
+    display: flex;
+    flex-direction: column;
   }
 
   .some-links a {
-    display: block;
+    line-height: 1.5;
     color: white;
     text-decoration: none;
-    margin: 0.25rem 0;
+    font-family: "owners-text", sans-serif;
   }
 
   .some-links a:hover {
     color: #fffa3c;
   }
-  /* === DESKTOP === */
-  @media (min-width: 750px) {
-    .burger,
-    .close,
-    .nav-illustration,
-    .some-links {
+
+  body.no-scroll {
+    overflow: hidden;
+  }
+  /* === Desktop styling === */
+  @media (min-width: 768px) {
+    .site-header {
+      padding: 0px 25px;
+    }
+
+    .burger {
       display: none;
-    }
-
-    .menu-logo {
-      display: none;
-    }
-
-    header.site-header {
-      background: transparent;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      padding: 1rem 2rem;
-    }
-
-    .logo {
-      white-space: nowrap;
-      font-size: 1.6rem;
     }
 
     .nav-menu {
-      display: flex !important;
-      justify-content: flex-end;
-      align-items: flex-start;
-      background: none;
       position: static;
-      height: auto;
-      top: auto;
-      overflow: visible;
-      padding: 0;
-      width: 100%; /* <- Denne linje er afgørende! */
+      background: transparent;
+    }
+
+    .menu-top {
+      display: none;
+    }
+
+    .menu-content {
+      display: flex;
+      justify-content: flex-end;
+      gap: 55px;
     }
 
     .nav-links {
       display: flex;
-      flex-direction: row;
-      gap: 2rem;
-      margin: 0;
-    }
-
-    .nav-links li {
-      margin: 0;
+      gap: 55px;
+      margin-top: 30px;
     }
 
     .nav-links a {
-      font-size: 1.4rem;
       color: black;
-      padding: 2rem 0;
-      text-decoration: none;
-      font-weight: bold;
     }
 
     .nav-links a:hover {
       color: #fffa3c;
     }
+
+    .mobile-only {
+      display: none;
+    }
   }
 </style>
 
+<!-- === JavaScript === -->
 <script>
   const burger = document.getElementById("burger");
   const navMenu = document.getElementById("navMenu");
 
   burger.addEventListener("click", () => {
+    const isOpen = burger.classList.toggle("open");
     navMenu.classList.toggle("active");
-    burger.classList.toggle("open");
+
+    // Tilføj eller fjern no-scroll på body
+    document.body.classList.toggle("no-scroll", isOpen);
   });
 </script>
