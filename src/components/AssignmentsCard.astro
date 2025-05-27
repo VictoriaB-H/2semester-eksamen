@@ -13,10 +13,12 @@ if (!overskrift || !beskrivelse || !readmore) {
   <p class="beskrivelse">{beskrivelse}</p>
   <details>
     <summary class="readmore">+ {readmore}</summary>
-    <div class="goder-text">
-      Partout festivalarmbånd. 4x drinksbilletter. Invitation til frivilligfest.
-      En mega sjov og fed tid sammen med andre frivillige
-    </div>
+    <ul class="goder-text">
+      <li>Partout festivalarmbånd</li>
+      <li>4x drinksbilletter</li>
+      <li>Invitation til frivilligfest</li>
+      <li>En mega sjov og fed tid sammen med andre frivillige</li>
+    </ul>
   </details>
 </article>
 
@@ -66,10 +68,28 @@ if (!overskrift || !beskrivelse || !readmore) {
     color: #fffa3c;
   }
 
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary::marker {
+    content: "";
+  }
+
+  summary:hover {
+    color: #fffa3c;
+  }
+
   .goder-text {
     margin-top: 1rem;
     font-size: 0.95rem;
     font-family: owners-text, sans-serif;
+    padding-left: 1.2rem;
+  }
+
+  .goder-text li {
+    margin-bottom: 0.5rem;
+    list-style-type: disc;
   }
 
   @media (max-width: 768px) {
