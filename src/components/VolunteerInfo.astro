@@ -1,3 +1,10 @@
+---
+interface Props {
+  isVolunteerPage?: boolean;
+}
+const { isVolunteerPage = false } = Astro.props;
+---
+
 <div class="tekst">
   <p>
     Frivillige er kernen i Av Min Guldtand. Som frivillig bliver du en del af
@@ -12,12 +19,28 @@
     også lidt ekstra frivilligfordele med i rygsækken.
   </p>
   <p>
-    Tag et kig på mulighederne og find den opgave, der passer bedst til dig - vi
+    Tag et kig på mulighederne og find den opgave, der passer bedst til dig – vi
     glæder os til at have dig med på holdet.
   </p>
 </div>
+
 <div class="button">
-  <a href="volunteer" class="btn2">LÆS MERE</a>
+  {
+    isVolunteerPage ? (
+      <a
+        href="https://docs.google.com/forms/d/e/1FAIpQLSc7OL5cPF8KwR9HgiicgM0HT3E0Km7m6g45oCdG6tsR7AN8FQ/viewform?pli=1"
+        class="btn2"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        TILMELD HER
+      </a>
+    ) : (
+      <a href="volunteer" class="btn2">
+        LÆS MERE
+      </a>
+    )
+  }
 </div>
 
 <style>

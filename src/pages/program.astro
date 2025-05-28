@@ -40,7 +40,7 @@ console.log(data);
   <!-- Overlay for artister -->
   <div id="artistOverlay" class="overlay hidden">
     <div class="overlay-content">
-      <img id="overlayImg" src="" alt="Artist billede" />
+      <img id="overlayImg" src="/img/placeholder.webp" alt="Artist billede" />
       <div class="overlay-text">
         <h2 id="overlayName"></h2>
         <div class="day-time-box">
@@ -118,6 +118,7 @@ console.log(data);
     background-color: #000000;
     position: relative;
     padding: 6%;
+    margin-top: 160px;
   }
 
   .overlay-content img {
@@ -193,8 +194,8 @@ console.log(data);
     }
     .overlay-content {
       display: flex;
-      /* align-items: center; */
       align-items: flex-start;
+      margin-top: 0px;
     }
 
     .overlay-content img {
@@ -214,7 +215,7 @@ console.log(data);
 
     .overlay-text h2 {
       line-height: 1;
-      margin: 0;
+      margin-top: 5%;
     }
   }
 </style>
