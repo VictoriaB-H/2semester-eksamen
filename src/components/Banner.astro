@@ -1,41 +1,37 @@
-<div class="bildebanner-wrapper">
-  <div class="bildebanner">
-    <div class="bildebanner-track">
-      <img src="../img/bildebanner.webp" alt="" />
-      <img src="../img/bildebanner.webp" alt="" />
-    </div>
+<div class="banner-wrapper">
+  <div class="banner">
+    <img src="../img/bildebanner.webp" alt="Banner" class="banner-img" />
+    <img
+      src="../img/bildebanner.webp"
+      alt="Banner Duplicate"
+      class="banner-img"
+    />
   </div>
 </div>
 
 <style>
-  .bildebanner-wrapper {
+  .banner-wrapper {
     width: 100vw;
     overflow: hidden;
     position: relative;
-    margin: -35px;
-    margin-top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
-  .bildebanner {
+  .banner {
     display: flex;
-    width: max-content;
+    width: fit-content;
     animation: scroll-left 25s linear infinite;
   }
 
-  .bildebanner-track {
-    display: flex;
-  }
-
-  .bildebanner img {
-    display: block;
-    height: auto;
-    max-height: 180px;
-    flex-shrink: 0;
+  .banner-img {
+    max-height: 150px;
+    margin-top: 50px;
   }
 
   @keyframes scroll-left {
     0% {
-      transform: translateX(0%);
+      transform: translateX(0);
     }
     100% {
       transform: translateX(-50%);
@@ -43,16 +39,9 @@
   }
 
   @media (min-width: 768px) {
-    .bildebanner img {
-      max-height: 280px;
-    }
-    .bildebanner-wrapper {
-      width: 100vw;
-      overflow: hidden;
-      position: relative;
-      margin-left: calc(-1 * var(--global-margin-left, 35px));
-      margin-right: 0; /* sikrer ikke at højre margin bliver negativ */
-      margin-top: 40px;
+    .banner-img {
+      max-height: 210px;
+      margin-top: 30px;
     }
   }
 </style>
