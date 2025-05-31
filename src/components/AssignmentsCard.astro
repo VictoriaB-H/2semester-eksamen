@@ -56,6 +56,11 @@ if (!overskrift || !beskrivelse || !readmore) {
     cursor: pointer;
     font-family: owners-text, sans-serif;
     margin-top: 10px;
+    list-style: none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
   }
 
   summary:hover {
