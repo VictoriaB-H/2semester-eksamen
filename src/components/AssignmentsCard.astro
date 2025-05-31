@@ -1,8 +1,6 @@
 ---
-// AssignmentsCard.astro
 const { overskrift, beskrivelse, link, readmore } = Astro.props;
 
-// Skip rendering if required props are missing
 if (!overskrift || !beskrivelse || !readmore) {
   return null;
 }
