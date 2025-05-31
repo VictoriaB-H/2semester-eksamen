@@ -1,5 +1,5 @@
 ---
-const { overskrift, beskrivelse, link, readmore } = Astro.props;
+const { overskrift, beskrivelse, readmore } = Astro.props;
 
 if (!overskrift || !beskrivelse || !readmore) {
   return null;
@@ -24,19 +24,16 @@ if (!overskrift || !beskrivelse || !readmore) {
   .card {
     border: 1px solid white;
     padding: 1.5rem;
-    background: black;
     box-sizing: border-box;
-    color: white;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     min-height: 250px;
-    flex-shrink: 0;
   }
 
   h4 {
     text-align: center;
-    margin: 0 0 10px 0;
+    margin-top: 10px;
     font-size: 1.2rem;
   }
 
@@ -48,7 +45,6 @@ if (!overskrift || !beskrivelse || !readmore) {
 
   details {
     border-top: 1px solid white;
-    padding-top: 1rem;
     cursor: pointer;
   }
 
@@ -56,22 +52,10 @@ if (!overskrift || !beskrivelse || !readmore) {
     font-size: 1.2rem;
     list-style: none;
     outline: none;
-    color: white;
     transition: color 0.2s ease;
     cursor: pointer;
     font-family: owners-text, sans-serif;
-  }
-
-  summary:hover {
-    color: #fffa3c;
-  }
-
-  summary::-webkit-details-marker {
-    display: none;
-  }
-
-  summary::marker {
-    content: "";
+    margin-top: 10px;
   }
 
   summary:hover {
@@ -92,8 +76,6 @@ if (!overskrift || !beskrivelse || !readmore) {
 
   @media (max-width: 768px) {
     .card {
-      scroll-snap-align: center;
-      flex: 0 0 80%;
       min-width: 280px;
     }
   }
