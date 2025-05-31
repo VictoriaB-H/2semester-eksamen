@@ -38,7 +38,6 @@ import Card from "../components/AssignmentsCard.astro";
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
-    align-items: stretch;
   }
 
   @media (max-width: 1024px) {
@@ -51,7 +50,6 @@ import Card from "../components/AssignmentsCard.astro";
     .cards {
       display: flex;
       overflow-x: auto;
-      scroll-snap-type: x mandatory;
       gap: 10px;
     }
 

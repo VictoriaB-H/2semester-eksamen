@@ -17,7 +17,6 @@ const options = {
 };
 
 const data = await fetch(curl, options).then((response) => response.json());
-console.log(data);
 ---
 
 <Layout>
@@ -28,7 +27,7 @@ console.log(data);
     <div class="filter-buttons">
       <button onclick="filterByDay('Alle')">Alle</button>
       <button onclick="filterByDay('Fredag')">Fredag 30/5</button>
-      <button onclick="filterByDay('Lørdag')">Lørdag 30/5</button>
+      <button onclick="filterByDay('Lørdag')">Lørdag 31/5</button>
     </div>
 
     <!-- Artister -->
@@ -116,7 +115,6 @@ console.log(data);
 
   .overlay-content {
     background-color: #000000;
-    position: relative;
     padding: 6%;
     margin-top: 160px;
   }
@@ -225,14 +223,6 @@ console.log(data);
   // Overlay-elementet
   const overlay = document.getElementById("artistOverlay");
 
-  function slugify(text) {
-    return text
-      .toLowerCase()
-      .trim()
-      .replace(/\s+/g, "-")
-      .replace(/[^\w\-]+/g, "");
-  }
-
   // Vis overlay med artist-detaljer
   function showOverlay(artist) {
     document.getElementById("overlayImg").src = "../img/" + artist.image;
@@ -278,9 +268,6 @@ console.log(data);
 
     // Skjul header
     document.querySelector("header")?.classList.add("hidden");
-
-    const slug = slugify(artist.name);
-    history.pushState(null, "", `/program/${slug}`);
   }
 
   // Skjul overlay

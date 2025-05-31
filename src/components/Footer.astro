@@ -16,25 +16,29 @@
 
     <div class="footer-block">
       <p><strong>Følg med her</strong></p>
-      <p>
+      <div class="social-icons">
         <a
           href="https://www.instagram.com/avminguldtand/"
           target="_blank"
-          rel="noopener noreferrer">Instagram</a
+          rel="noopener noreferrer"
         >
-        <br />
+          <img src="/img/instagram.webp" alt="Instagram" />
+        </a>
         <a
           href="https://www.facebook.com/AvMinGuldtand"
           target="_blank"
-          rel="noopener noreferrer">Facebook</a
+          rel="noopener noreferrer"
         >
-        <br />
+          <img src="/img/facebook.webp" alt="Facebook" />
+        </a>
         <a
           href="https://www.tiktok.com/@av.min.guldtand"
           target="_blank"
-          rel="noopener noreferrer">TikTok</a
+          rel="noopener noreferrer"
         >
-      </p>
+          <img src="/img/tiktok.webp" alt="TikTok" />
+        </a>
+      </div>
     </div>
 
     <div class="footer-block illustration-block">
@@ -63,6 +67,7 @@
   }
 
   .footer-block h2 {
+    font-family: "Bangers", sans-serif;
     margin-bottom: 20px;
     font-size: 40px;
   }
@@ -85,6 +90,21 @@
     color: #fff;
   }
 
+  .social-icons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+  }
+
+  .social-icons img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .social-icons a:hover img {
+    transform: scale(1.2);
+  }
+
   /* DESKTOP layout */
   @media (min-width: 768px) {
     .footer-grid {
@@ -95,19 +115,18 @@
       text-align: left;
     }
 
-    .logo-block {
-      align-self: center;
-    }
-
     .footer-illustration {
       max-width: 100px;
-      margin: 0;
     }
 
     .copyright {
       text-align: center;
       margin-top: 1.5rem;
       margin-bottom: 20px;
+    }
+
+    .social-icons {
+      justify-content: flex-start;
     }
   }
 </style>

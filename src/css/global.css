@@ -6,6 +6,19 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Bangers";
+  src: url("../fonts/Bangers-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.logo-link {
+  font-family: "Bangers", sans-serif;
+  font-size: 25px;
+}
+
 h1,
 h2,
 h3,
@@ -36,7 +49,7 @@ h4 {
 
 p {
   font-size: 16px;
-  font-family: "owners-text", sans-serif !important;
+  font-family: "owners-text", sans-serif;
 }
 
 .btn2 {
@@ -68,7 +81,6 @@ p {
 
   .btn2 {
     font-size: 30px;
-    font-family: "Anton", sans-serif;
   }
 }
 
