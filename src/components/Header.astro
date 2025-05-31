@@ -17,7 +17,7 @@ const { isHome = false } = Astro.props;
   <!-- Navigation -->
   <nav class="nav-menu" id="navMenu">
     <div class="menu-top">
-      <h1 class="menu-logo">Av, Min Guldtand</h1>
+      <h1 class="logo">Av, Min Guldtand</h1>
     </div>
 
     <div class="menu-content">
@@ -87,8 +87,7 @@ const { isHome = false } = Astro.props;
     color: black;
   }
 
-  .logo,
-  .menu-logo {
+  .logo {
     font-size: 25px;
     margin: 0;
     white-space: nowrap;
@@ -171,7 +170,6 @@ const { isHome = false } = Astro.props;
     font-family: "Anton", sans-serif;
   }
 
-  .default-header .nav-links a:hover,
   .nav-links a:hover {
     color: #fffa3c;
   }
@@ -252,8 +250,6 @@ const { isHome = false } = Astro.props;
   burger.addEventListener("click", () => {
     const isOpen = burger.classList.toggle("open");
     navMenu.classList.toggle("active");
-
-    // Tilføj eller fjern no-scroll på body
     document.body.classList.toggle("no-scroll", isOpen);
   });
 </script>
